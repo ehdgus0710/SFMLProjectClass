@@ -65,7 +65,7 @@ void Player::Reset()
 
 void Player::Update(float dt)
 {
-	direction.x = InputMgr::GetAxis(Axis::Horizontal) ;
+	direction.x = InputMgr::GetAxis(Axis::Horizontal);
 	direction.y = InputMgr::GetAxis(Axis::Vertical);
 
 	if(direction.SqrMagnitude() > 1.f)

@@ -11,29 +11,37 @@ TileMap::TileMap(const std::string& name)
 void TileMap::SetPosition(const sf::Vector2f& pos)
 {
 	position = pos;
+	UpdateTransform();
 }
 
 void TileMap::SetRotation(float angle)
 {
-	transform.rotate(-rotation);
 	rotation = angle;
-	transform.rotate(angle);
+	UpdateTransform();
 }
 
 void TileMap::SetScale(const sf::Vector2f& s)
 {
 	scale = s;
-	transform.scale(s);;
+	UpdateTransform();
 }
 
 void TileMap::SetOrigin(Origins preset)
 {
 	originPreset = preset;
+	if (originPreset != Origins::Custom)
+	{
+		origin.x = cellCount.x * cellSize.x * ((int)preset % 3) * 0.5f;
+		origin.y = cellCount.y * cellSize.y * ((int)preset / 3) * 0.5f;
+		UpdateTransform();
+	}
 }
 
 void TileMap::SetOrigin(const sf::Vector2f& newOrigin)
 {
 	originPreset = Origins::Custom;
+	origin = newOrigin;
+	UpdateTransform();
 }
 
 void TileMap::SetInfo(const sf::Vector2u& count, const sf::Vector2f& size)
@@ -147,7 +155,7 @@ void TileMap::SetInfo(const sf::Vector2u& tileCount, const sf::Vector2f& tileSiz
 			}
 
 			auto quadIndex = i * tileCount.x + j;
-			sf::Vector2f quadPosition(createPosition.x + j * tileSize.y, createPosition.y + i * tileSize.y);
+			sf::Vector2f quadPosition(j * tileSize.y, i * tileSize.y);
 
 			for (int k = 0; k < 4; ++k)
 			{
@@ -161,16 +169,6 @@ void TileMap::SetInfo(const sf::Vector2u& tileCount, const sf::Vector2f& tileSiz
 	}
 }
 
-void TileMap::UpdateTransform()
-{
-	transform = transform.Identity;
-	//transform.translate()
-	//transform.rotate
-	//transform.scale()
-	// 
-
-}
-
 void TileMap::Init()
 {
 	sortingLayer = SortingLayers::Background;
@@ -179,11 +177,6 @@ void TileMap::Init()
 	//SetInfo({ 10,10 }, { 50.f,50.f });
 	SetInfo({ 10,10 }, { 50.f,50.f }, { 50,50 });
 	SetOrigin(Origins::MC);
-
-	SetPosition({ 200.f, 200.f });
-	SetScale(sf::Vector2f::one * 1.25f);
-
-	transform.translate(300, 300);
 }
 
 void TileMap::Release()
@@ -193,15 +186,35 @@ void TileMap::Release()
 void TileMap::Reset()
 {
 	texture = &TEXTURE_MGR.Get(spriteSheetId);
-	SetOrigin(originPreset);
-	SetPosition(sf::Vector2f::zero);
-	SetRotation(rotation);
-	SetScale(scale);
+	
+	position = { 300.f,300.f };
+	scale = sf::Vector2f::one * 1.25f;
+	UpdateTransform();
+}
+
+void TileMap::UpdateTransform()
+{
+	transform = transform.Identity;
+	transform.translate(position);
+	transform.rotate(rotation);
+	transform.scale(scale);
+	transform.translate(-origin);
 }
 
 void TileMap::Update(float dt)
 {
-	SetRotation(dt);
+	direction.x = InputMgr::GetAxis(Axis::Horizontal);
+	direction.y = InputMgr::GetAxis(Axis::Vertical);
+
+	if (direction.SqrMagnitude() > 1.f)
+		direction.Normalized();
+
+	SetPosition(position + direction * 100.f * dt);
+	
+	if (InputMgr::GetKeyDown(sf::Keyboard::PageUp))
+	{
+		SetRotation(rotation + 1.f);
+	}
 }
 
 void TileMap::Draw(sf::RenderWindow& window)

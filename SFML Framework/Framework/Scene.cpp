@@ -116,7 +116,7 @@ int Scene::FindGoAll(const std::string& name, std::list<GameObject*>& list)
 			list.push_back(obj);
 		}
 	}
-	return list.size();
+	return (int)list.size();
 }
 
 void Scene::ApplyAddGo()
