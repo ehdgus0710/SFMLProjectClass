@@ -1,0 +1,593 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\KGAClass\\SFML Framework\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\TileMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:TileMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\SceneZombieGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:SceneZombieGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\Framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\Framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\ResourceMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\ResourceMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\SceneZombieGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:SceneZombieGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\SceneDev2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\SceneDev2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\SceneDev1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\SceneDev1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\Utils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\Utils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\SpriteGo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\SpriteGo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\SceneMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\SceneMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\InputMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\InputMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\ScenePongGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:ScenePongGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGACLASS\\SFML FRAMEWORK\\SFML-2.6.1\\INCLUDE\\SFML\\SYSTEM\\VECTOR2.INL||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:SFML-2.6.1\\INCLUDE\\SFML\\SYSTEM\\VECTOR2.INL||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\TextGo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\TextGo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\Utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\Utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\InputMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\InputMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\SceneMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\SceneMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\ScenePongGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:ScenePongGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Ball.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Ball.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\TextGo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\TextGo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\SpriteGo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\SpriteGo.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Bat.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Bat.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Bat.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Bat.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Ball.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Ball.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\Defines.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\Defines.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\SceneDev2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\SceneDev2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\SceneDev1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\SceneDev1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|D:\\KGAClass\\SFML Framework\\Framework\\Framework.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{2F52F5BB-0160-4854-9E33-44BBFE0CE7CA}|SFML Template.vcxproj|solutionrelative:Framework\\Framework.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SceneDev2.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\SceneDev2.cpp",
+              "RelativeDocumentMoniker": "Framework\\SceneDev2.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\SceneDev2.cpp",
+              "RelativeToolTip": "Framework\\SceneDev2.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T05:18:20.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TileMap.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\TileMap.h",
+              "RelativeDocumentMoniker": "TileMap.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\TileMap.h",
+              "RelativeToolTip": "TileMap.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-04T05:35:40.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SceneDev1.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\SceneDev1.cpp",
+              "RelativeDocumentMoniker": "Framework\\SceneDev1.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\SceneDev1.cpp",
+              "RelativeToolTip": "Framework\\SceneDev1.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T05:18:17.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SceneMgr.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\SceneMgr.cpp",
+              "RelativeDocumentMoniker": "Framework\\SceneMgr.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\SceneMgr.cpp",
+              "RelativeToolTip": "Framework\\SceneMgr.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T05:56:30.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SceneZombieGame.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\SceneZombieGame.h",
+              "RelativeDocumentMoniker": "SceneZombieGame.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\SceneZombieGame.h",
+              "RelativeToolTip": "SceneZombieGame.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-04T04:32:48.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SceneZombieGame.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\SceneZombieGame.cpp",
+              "RelativeDocumentMoniker": "SceneZombieGame.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\SceneZombieGame.cpp",
+              "RelativeToolTip": "SceneZombieGame.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-04T04:33:30.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TileMap.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\TileMap.cpp",
+              "RelativeDocumentMoniker": "TileMap.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\TileMap.cpp",
+              "RelativeToolTip": "TileMap.cpp",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAhwKcAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-04T05:36:33.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "InputMgr.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\InputMgr.h",
+              "RelativeDocumentMoniker": "Framework\\InputMgr.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\InputMgr.h",
+              "RelativeToolTip": "Framework\\InputMgr.h",
+              "ViewState": "AgIAACMAAAAAAAAAAAAiwDgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T04:34:34.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Framework.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\Framework.h",
+              "RelativeDocumentMoniker": "Framework\\Framework.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\Framework.h",
+              "RelativeToolTip": "Framework\\Framework.h",
+              "ViewState": "AgIAABgAAAAAAAAAAAAvwCcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T06:23:30.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SpriteGo.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\SpriteGo.cpp",
+              "RelativeDocumentMoniker": "Framework\\SpriteGo.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\SpriteGo.cpp",
+              "RelativeToolTip": "Framework\\SpriteGo.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-04T07:00:36.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Player.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Player.cpp",
+              "RelativeDocumentMoniker": "Player.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Player.cpp",
+              "RelativeToolTip": "Player.cpp",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAFEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-04T04:21:52.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ResourceMgr.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\ResourceMgr.h",
+              "RelativeDocumentMoniker": "Framework\\ResourceMgr.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\ResourceMgr.h",
+              "RelativeToolTip": "Framework\\ResourceMgr.h",
+              "ViewState": "AgIAACYAAAAAAAAAAAAuwDwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-04T02:50:16.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Utils.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\Utils.h",
+              "RelativeDocumentMoniker": "Framework\\Utils.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\Utils.h",
+              "RelativeToolTip": "Framework\\Utils.h",
+              "ViewState": "AgIAABkAAAAAAAAAAADwvy4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-04T01:33:03.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ScenePongGame.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\ScenePongGame.cpp",
+              "RelativeDocumentMoniker": "ScenePongGame.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\ScenePongGame.cpp",
+              "RelativeToolTip": "ScenePongGame.cpp",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T05:53:14.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Utils.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\Utils.cpp",
+              "RelativeDocumentMoniker": "Framework\\Utils.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\Utils.cpp",
+              "RelativeToolTip": "Framework\\Utils.cpp",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAHwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-04T01:36:35.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Vector2.inl",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\SFML-2.6.1\\include\\SFML\\System\\Vector2.inl",
+              "RelativeDocumentMoniker": "SFML-2.6.1\\include\\SFML\\System\\Vector2.inl",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\SFML-2.6.1\\include\\SFML\\System\\Vector2.inl",
+              "RelativeToolTip": "SFML-2.6.1\\include\\SFML\\System\\Vector2.inl",
+              "ViewState": "AgIAADQAAAAAAAAAAAAiwEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-11-04T02:35:47.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Scene.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\Scene.h",
+              "RelativeDocumentMoniker": "Framework\\Scene.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\Scene.h",
+              "RelativeToolTip": "Framework\\Scene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T06:37:20.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GameObject.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\GameObject.h",
+              "RelativeDocumentMoniker": "Framework\\GameObject.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\GameObject.h",
+              "RelativeToolTip": "Framework\\GameObject.h",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACcAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T06:14:44.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "TextGo.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\TextGo.h",
+              "RelativeDocumentMoniker": "Framework\\TextGo.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\TextGo.h",
+              "RelativeToolTip": "Framework\\TextGo.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T08:16:23.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "InputMgr.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\InputMgr.cpp",
+              "RelativeDocumentMoniker": "Framework\\InputMgr.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\InputMgr.cpp",
+              "RelativeToolTip": "Framework\\InputMgr.cpp",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAF4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T04:41:43.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Player.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Player.h",
+              "RelativeDocumentMoniker": "Player.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Player.h",
+              "RelativeToolTip": "Player.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-04T04:21:08.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SceneMgr.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\SceneMgr.h",
+              "RelativeDocumentMoniker": "Framework\\SceneMgr.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\SceneMgr.h",
+              "RelativeToolTip": "Framework\\SceneMgr.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T06:35:51.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Scene.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\Scene.cpp",
+              "RelativeDocumentMoniker": "Framework\\Scene.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\Scene.cpp",
+              "RelativeToolTip": "Framework\\Scene.cpp",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T05:18:27.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ScenePongGame.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\ScenePongGame.h",
+              "RelativeDocumentMoniker": "ScenePongGame.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\ScenePongGame.h",
+              "RelativeToolTip": "ScenePongGame.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T05:51:19.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Ball.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Ball.cpp",
+              "RelativeDocumentMoniker": "Ball.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Ball.cpp",
+              "RelativeToolTip": "Ball.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T05:56:05.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "SpriteGo.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\SpriteGo.h",
+              "RelativeDocumentMoniker": "Framework\\SpriteGo.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\SpriteGo.h",
+              "RelativeToolTip": "Framework\\SpriteGo.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-04T03:02:15.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "TextGo.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\TextGo.cpp",
+              "RelativeDocumentMoniker": "Framework\\TextGo.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\TextGo.cpp",
+              "RelativeToolTip": "Framework\\TextGo.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwBsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T08:16:29.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Ball.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Ball.h",
+              "RelativeDocumentMoniker": "Ball.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Ball.h",
+              "RelativeToolTip": "Ball.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T05:55:17.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Bat.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Bat.h",
+              "RelativeDocumentMoniker": "Bat.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Bat.h",
+              "RelativeToolTip": "Bat.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T05:55:08.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Defines.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\Defines.h",
+              "RelativeDocumentMoniker": "Framework\\Defines.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\Defines.h",
+              "RelativeToolTip": "Framework\\Defines.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T05:54:33.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "SceneDev1.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\SceneDev1.h",
+              "RelativeDocumentMoniker": "Framework\\SceneDev1.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\SceneDev1.h",
+              "RelativeToolTip": "Framework\\SceneDev1.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T08:11:03.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Bat.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Bat.cpp",
+              "RelativeDocumentMoniker": "Bat.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Bat.cpp",
+              "RelativeToolTip": "Bat.cpp",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T05:56:19.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "SceneDev2.h",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\SceneDev2.h",
+              "RelativeDocumentMoniker": "Framework\\SceneDev2.h",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\SceneDev2.h",
+              "RelativeToolTip": "Framework\\SceneDev2.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T08:27:29.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Framework.cpp",
+              "DocumentMoniker": "D:\\KGAClass\\SFML Framework\\Framework\\Framework.cpp",
+              "RelativeDocumentMoniker": "Framework\\Framework.cpp",
+              "ToolTip": "D:\\KGAClass\\SFML Framework\\Framework\\Framework.cpp",
+              "RelativeToolTip": "Framework\\Framework.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T04:45:08.188Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
