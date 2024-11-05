@@ -34,6 +34,7 @@ void Framework::Do()
         // 업데이트
         SCENE_MGR.Update(deltaTime);
         SCENE_MGR.LateUpdate(deltaTime);
+        SCENE_MGR.FixedUpdate(deltaTime);
 
         // 드로우
         window.clear();

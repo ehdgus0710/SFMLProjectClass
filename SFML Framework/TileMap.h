@@ -32,6 +32,8 @@ public:
 	sf::FloatRect GetLocalBounds() const override;
 	sf::FloatRect GetGlobalBounds() const override;
 
+	const sf::Vector2f& GetCellSize() const { return cellSize; }
+
 public:
 
 	void Init() override;

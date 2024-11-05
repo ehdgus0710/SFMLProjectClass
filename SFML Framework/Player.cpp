@@ -1,10 +1,14 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "Scene.h"
+#include "Bullet.h"
+#include "SceneZombieGame.h"
 
 Player::Player(const std::string& name)
 	: GameObject(name)
 	, speed(500.f)
+	, shootTimer(0.f)
+	, shootDelay(0.5f)
 {
 	textureId = "graphics/player.png";
 	sortingLayer = SortingLayers::Foreground;
@@ -46,6 +50,12 @@ void Player::SetOrigin(const sf::Vector2f& newOrigin)
 	body.setOrigin(newOrigin);
 }
 
+void Player::Shoot()
+{
+	Bullet* bullet = sceneGame->TakeBullet();
+	bullet->Fire(position, lookDirection, 500.f, 1);
+}
+
 void Player::Init()
 {
 }
@@ -61,6 +71,8 @@ void Player::Reset()
 	SetOrigin(Origins::MC);
 	SetRotation(0.f);
 	direction = sf::Vector2f::right;
+
+	sceneGame = dynamic_cast<SceneZombieGame*>(SceneMgr::Instance().GetCurrentScene());
 }
 
 void Player::Update(float dt)
@@ -72,9 +84,33 @@ void Player::Update(float dt)
 		direction.Normalized();
 	
 	lookDirection = (sf::Vector2f)SceneMgr::Instance().GetCurrentScene()->ScreenToWorld(InputMgr::GetMousePosition()) - position;
-	SetRotation(Utils::Angle(Utils::GetNormal(lookDirection)));
+	lookDirection.Normalized();
 
-	SetPosition(position + direction * speed * dt);
+	SetRotation(Utils::Angle(lookDirection));
+
+	position += direction * speed * dt;
+
+	position.x = Utils::Clamp(position.x, moveableRect.left, moveableRect.width);
+	position.y = Utils::Clamp(position.y, moveableRect.top, moveableRect.height);
+
+	SetPosition(position);
+
+	shootTimer += dt;
+	if (shootTimer > shootDelay && InputMgr::GetMouseButton(sf::Mouse::Left))
+	{
+		Shoot();
+		shootTimer = 0.f;
+	}
+}
+
+sf::FloatRect Player::GetLocalBounds() const
+{
+	return  body.getLocalBounds();
+}
+
+sf::FloatRect Player::GetGlobalBounds() const
+{
+	return  body.getGlobalBounds();
 }
 
 void Player::Draw(sf::RenderWindow& window)

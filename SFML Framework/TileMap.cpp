@@ -23,6 +23,7 @@ void TileMap::SetRotation(float angle)
 void TileMap::SetScale(const sf::Vector2f& s)
 {
 	scale = s;
+	cellSize = cellSize * scale;
 	UpdateTransform();
 }
 
@@ -176,7 +177,7 @@ void TileMap::Init()
 	sortingOrder = -1;
 
 	//SetInfo({ 10,10 }, { 50.f,50.f });
-	SetInfo({ 10,10 }, { 50.f,50.f }, { 50,50 });
+	SetInfo({ 30,30 }, { 50.f,50.f }, { 50,50 });
 	SetOrigin(Origins::MC);
 }
 
@@ -189,7 +190,7 @@ void TileMap::Reset()
 	texture = &TEXTURE_MGR.Get(spriteSheetId);
 	
 	position = { 300.f,300.f };
-	scale = sf::Vector2f::one * 1.25f;
+	SetScale(sf::Vector2f::one * 1.25f);
 	UpdateTransform();
 }
 
@@ -210,7 +211,7 @@ sf::FloatRect TileMap::GetLocalBounds() const
 sf::FloatRect TileMap::GetGlobalBounds() const
 {
 	sf::FloatRect bounds = GetLocalBounds();
-	return transform.transformRect(bounds);
+	return  transform.transformRect(bounds);
 }
 
 void TileMap::Update(float dt)

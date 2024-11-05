@@ -1,6 +1,7 @@
 #pragma once
 
 class Player;
+class SceneZombieGame;
 
 class Zombie : public GameObject
 {
@@ -19,8 +20,13 @@ protected:
 	Player*			player;
 	Types			types = Types::Bloater;
 
+	SceneZombieGame* sceneGame;
+
+	sf::FloatRect	mapRect;
 	std::string		textureId;
 	sf::Vector2f	direction;
+
+	DebugBox		debugBox;
 
 	int				maxHp;
 	int				hp;
@@ -41,6 +47,12 @@ public:
 	void SetOrigin(const sf::Vector2f& newOrigin) override;
 
 	void SetPlayer(Player* player) { this->player = player; }
+	void SetMapRect(const sf::FloatRect& mapRect) { this->mapRect = mapRect; }
+
+	sf::FloatRect GetLocalBounds() const  override;
+	sf::FloatRect GetGlobalBounds() const override;
+
+	void OnDamage(GameObject* target , int damge);
 
 public:
 	void Init() override;

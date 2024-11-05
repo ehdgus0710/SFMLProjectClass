@@ -39,6 +39,7 @@ public:
 
 	virtual void Update(float dt);
 	virtual void LateUpdate(float dt);
+	virtual void FixedUpdate(float dt);
 
 	virtual void OnPreDraw();
 	virtual void Draw(sf::RenderWindow& window);

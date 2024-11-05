@@ -50,6 +50,11 @@ void SceneMgr::LateUpdate(float dt)
 	scenes[(int)currentScene]->LateUpdate(dt);
 }
 
+void SceneMgr::FixedUpdate(float dt)
+{
+	scenes[(int)currentScene]->FixedUpdate(dt);
+}
+
 void SceneMgr::OnPreDraw()
 {
 	scenes[(int)currentScene]->OnPreDraw();

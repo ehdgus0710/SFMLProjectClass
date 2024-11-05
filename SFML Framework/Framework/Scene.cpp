@@ -57,6 +57,22 @@ void Scene::Update(float dt)
 
 void Scene::LateUpdate(float dt)
 {
+	for (auto obj : gameObjects)
+	{
+		if (!obj->IsActive())
+			continue;
+		obj->LateUpdate(dt);
+	}
+}
+
+void Scene::FixedUpdate(float dt)
+{
+	for (auto obj : gameObjects)
+	{
+		if (!obj->IsActive())
+			continue;
+		obj->FixedUpdate(dt);
+	}
 }
 
 void Scene::OnPreDraw()
