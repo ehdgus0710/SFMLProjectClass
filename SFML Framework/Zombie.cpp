@@ -47,6 +47,7 @@ void Zombie::SetType(Types type)
 	}
 
 	body.setTexture(TEXTURE_MGR.Get(textureId), true);
+	SetOrigin(originPreset);
 }
 
 void Zombie::SetPosition(const sf::Vector2f& pos)
@@ -106,11 +107,11 @@ void Zombie::Reset()
 
 void Zombie::Update(float dt)
 {
-	if (player != nullptr && Utils::Distance(position, player->GetPosition()) > 10.f)
+	if (player != nullptr && Utils::Distance(position, player->GetPosition()) > 20.f)
 	{
 		direction = Utils::GetNormal(player->GetPosition() - position);
-		// direction = player->GetPosition() - position;
-		// direction.Normalized();
+		//direction = player->GetPosition() - position;
+		//direction.Normalized();
 
 		SetRotation(Utils::Angle(direction));
 		SetPosition(position + direction * speed * dt);
