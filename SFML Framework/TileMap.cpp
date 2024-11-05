@@ -23,7 +23,7 @@ void TileMap::SetRotation(float angle)
 void TileMap::SetScale(const sf::Vector2f& s)
 {
 	scale = s;
-	cellSize = cellSize * scale;
+	//cellSize = cellSize * scale;
 	UpdateTransform();
 }
 
@@ -213,6 +213,9 @@ sf::FloatRect TileMap::GetGlobalBounds() const
 	sf::FloatRect bounds = GetLocalBounds();
 	return  transform.transformRect(bounds);
 }
+
+// return transform.transformRect((sf::FloatRect(cellSize.x, cellSize.y, cellCount.x - 2 * cellSize.x, cellCount.y-2 * cellSize.y));
+
 
 void TileMap::Update(float dt)
 {

@@ -12,10 +12,15 @@ protected:
 
 	sf::Vector2f		direction;
 	sf::Vector2f		lookDirection;
-	float speed;
+	float				speed;
 
-	float shootTimer;
-	float shootDelay;
+	int					maxHp;
+	int					hp;
+
+	float				shootTimer;
+	float				shootDelay;
+	float				maxDelayTime;
+	float				defalutDelayTime;
 
 public:
 	void SetPosition(const sf::Vector2f& pos) override;
@@ -30,6 +35,11 @@ public:
 	sf::FloatRect GetGlobalBounds() const override;
 
 	void Shoot();
+
+	void OnTakeDamage(int takeDamage);
+	void AddHp(int hp);
+	void AddDelayTime(float delay);
+
 public:
 	void Init() override;
 	void Release() override;

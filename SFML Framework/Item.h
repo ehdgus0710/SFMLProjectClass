@@ -1,5 +1,7 @@
 #pragma once
 
+class Player;
+
 class Item : public GameObject
 {
 public:
@@ -12,6 +14,7 @@ public:
 	
 	static int totalItemType;
 protected:
+	Player* player;
 	ItemType itemType;
 
 	sf::Sprite	body;
@@ -30,6 +33,8 @@ public:
 	void SetOrigin(const sf::Vector2f& newOrigin) override;
 
 	void CreateItem(const sf::Vector2f& position);
+	void SetPlayer(Player* player) { this->player = player; }
+
 
 	sf::FloatRect GetLocalBounds() const  override;
 	sf::FloatRect GetGlobalBounds() const override;
@@ -38,6 +43,7 @@ public:
 	void Release() override;
 	void Reset() override;
 	void Update(float dt) override;
+	void FixedUpdate(float dt) override;
 	void Draw(sf::RenderWindow& window) override;
 
 public:

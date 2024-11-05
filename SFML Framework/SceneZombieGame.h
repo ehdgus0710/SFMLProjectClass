@@ -38,6 +38,7 @@ public:
 
 	void OnZombieDie(Zombie* zombie);
 	void ReturnBullet(Bullet* bullet);
+	void ReturnItem(Item* item);
 
 public:
 	void Init() override;

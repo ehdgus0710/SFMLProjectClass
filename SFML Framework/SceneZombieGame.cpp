@@ -50,6 +50,7 @@ void SceneZombieGame::SpawnItem(int count)
 		Item* item = itemPool.Take();
 		itemList.push_back(item);
 		sf::Vector2f position = sf::Vector2f{ Utils::RandomRange(rect.left, rect.left + rect.width) , Utils::RandomRange(rect.top, rect.top + rect.height) };
+		item->SetPlayer(player);
 		item->SetOrigin(Origins::MC);
 		item->CreateItem(position);
 
@@ -83,6 +84,13 @@ void SceneZombieGame::ReturnBullet(Bullet* bullet)
 	RemoveGo(bullet);
 	bulletPool.Return(bullet);
 	bulletList.remove(bullet);
+}
+
+void SceneZombieGame::ReturnItem(Item* item)
+{
+	RemoveGo(item);
+	itemPool.Return(item);
+	itemList.remove(item);
 }
 
 void SceneZombieGame::Init()
@@ -147,12 +155,13 @@ void SceneZombieGame::Update(float dt)
 
 	if (InputMgr::GetKeyDown(sf::Keyboard::Escape))
 	{
+		Framework::Instance().SetTimeScale(1.f);
 		SCENE_MGR.ChangeScene(SceneIds::Game);
 	}
 
 	if (InputMgr::GetKeyDown(sf::Keyboard::Space))
 	{
-		SpawnZombies(100);
+		SpawnZombies(10);
 	}
 
 	if (player != nullptr)

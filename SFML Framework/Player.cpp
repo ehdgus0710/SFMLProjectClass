@@ -9,6 +9,11 @@ Player::Player(const std::string& name)
 	, speed(500.f)
 	, shootTimer(0.f)
 	, shootDelay(0.5f)
+	, maxHp(10000)
+	, hp(0)
+	, maxDelayTime(0.05f)
+	, defalutDelayTime(0.5f)
+
 {
 	textureId = "graphics/player.png";
 	sortingLayer = SortingLayers::Foreground;
@@ -56,6 +61,34 @@ void Player::Shoot()
 	bullet->Fire(position, lookDirection, 500.f, 1);
 }
 
+void Player::OnTakeDamage(int takeDamage)
+{
+	hp -= takeDamage;
+
+	if (hp <= 0)
+	{
+		Framework::Instance().SetTimeScale(0.f);
+	}
+}
+
+void Player::AddHp(int hp)
+{
+	this->hp += hp;
+	if (this->hp > maxHp)
+	{
+		this->hp = maxHp;
+	}
+}
+
+void Player::AddDelayTime(float delay)
+{
+	shootDelay -= delay;
+	if (shootDelay < maxDelayTime)
+	{
+		shootDelay = maxDelayTime;
+	}
+}
+
 void Player::Init()
 {
 }
@@ -71,6 +104,10 @@ void Player::Reset()
 	SetOrigin(Origins::MC);
 	SetRotation(0.f);
 	direction = sf::Vector2f::right;
+
+	hp = maxHp;
+	shootDelay = defalutDelayTime;
+
 
 	sceneGame = dynamic_cast<SceneZombieGame*>(SceneMgr::Instance().GetCurrentScene());
 }

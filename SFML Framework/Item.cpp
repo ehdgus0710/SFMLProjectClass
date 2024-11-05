@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Item.h"
+#include "Player.h"
+#include "SceneZombieGame.h"
 
 int Item::totalItemType = (int)ItemType::End;
 
@@ -7,6 +9,7 @@ Item::Item(const std::string& name)
 	: GameObject(name)
 	, itemType(ItemType::health)
 	, value(1)
+	, player(nullptr)
 {
 }
 
@@ -102,7 +105,7 @@ void Item::Release()
 void Item::Reset()
 {
 	//body.setTexture(TEXTURE_MGR.Get(textureId));
-	SetOrigin(Origins::ML);
+	SetOrigin(Origins::MC);
 	SetPosition(position);
 	SetRotation(0.f);
 	SetScale(sf::Vector2f::one);
@@ -110,6 +113,24 @@ void Item::Reset()
 
 void Item::Update(float dt)
 {
+}
+
+void Item::FixedUpdate(float dt)
+{
+	if (player == nullptr)
+		return;
+
+	sf::FloatRect bounds = GetGlobalBounds();
+	sf::FloatRect playerBounds = player->GetGlobalBounds();
+	if (bounds.intersects(playerBounds))
+	{
+		if (itemType == ItemType::health)
+			player->AddHp(value);
+		else if (itemType == ItemType::Ammo)
+			player->AddDelayTime(0.05f);
+
+		dynamic_cast<SceneZombieGame*>(SceneMgr::Instance().GetCurrentScene())->ReturnItem(this);
+	}
 }
 
 void Item::Draw(sf::RenderWindow& window)

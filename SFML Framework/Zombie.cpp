@@ -14,7 +14,7 @@ Zombie::Zombie(const std::string& name)
 	, hp(0)
 	, speed(0.f)
 	, damage(0)
-	, attackInterval(0.f)
+	, attackInterval(2.f)
 	, attackTimer(0.f)
 	, player(nullptr)
 {
@@ -31,6 +31,7 @@ void Zombie::SetType(Types type)
 		textureId = "graphics/bloater.png";
 		maxHp = 50;
 		speed = 100.f;
+		damage = 1;
 	}
 		break;
 	case Zombie::Types::Chaser: 
@@ -38,6 +39,7 @@ void Zombie::SetType(Types type)
 		textureId = "graphics/chaser.png";
 		maxHp = 20;
 		speed = 300.f;
+		damage = 2;
 	}
 		break;
 	case Zombie::Types::Crawler:
@@ -45,6 +47,7 @@ void Zombie::SetType(Types type)
 		textureId = "graphics/crawler.png";
 		maxHp = 10;
 		speed = 200.f;
+		damage = 3;
 	}
 		break;
 	default:
@@ -128,6 +131,7 @@ void Zombie::Reset()
 	SetPosition(position);
 	SetRotation(rotation);
 	SetScale(sf::Vector2f::one);
+	attackTimer = attackInterval;
 }
 
 void Zombie::Update(float dt)
@@ -141,6 +145,21 @@ void Zombie::Update(float dt)
 		position.y = Utils::Clamp(position.y, mapRect.top, mapRect.height);
 
 		SetPosition(position + direction * speed * dt);
+	}
+}
+
+void Zombie::FixedUpdate(float dt)
+{
+	attackTimer += dt;
+
+	if (attackTimer > attackInterval && player == nullptr)
+		return;
+	sf::FloatRect bounds = GetGlobalBounds();
+	sf::FloatRect playerBounds = player->GetGlobalBounds();
+	if (bounds.intersects(playerBounds))
+	{
+		attackTimer = 0.f;
+		player->OnTakeDamage(damage);
 	}
 }
 
