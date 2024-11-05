@@ -22,6 +22,7 @@ protected:
 	float				maxDelayTime;
 	float				defalutDelayTime;
 
+
 public:
 	void SetPosition(const sf::Vector2f& pos) override;
 	void SetRotation(float angle) override;

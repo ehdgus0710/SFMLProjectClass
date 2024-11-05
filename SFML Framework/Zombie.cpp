@@ -56,6 +56,7 @@ void Zombie::SetType(Types type)
 
 	hp = maxHp;
 	body.setTexture(TEXTURE_MGR.Get(textureId), true);
+
 	SetOrigin(originPreset);
 	sceneGame = dynamic_cast<SceneZombieGame*>(SceneMgr::Instance().GetCurrentScene());
 }
@@ -132,6 +133,7 @@ void Zombie::Reset()
 	SetRotation(rotation);
 	SetScale(sf::Vector2f::one);
 	attackTimer = attackInterval;
+
 }
 
 void Zombie::Update(float dt)
@@ -146,24 +148,34 @@ void Zombie::Update(float dt)
 
 		SetPosition(position + direction * speed * dt);
 	}
+
+	debugBox.SetBounds(body.getGlobalBounds());
 }
 
 void Zombie::FixedUpdate(float dt)
 {
 	attackTimer += dt;
 
-	if (attackTimer > attackInterval && player == nullptr)
+	if (player == nullptr)
 		return;
 	sf::FloatRect bounds = GetGlobalBounds();
 	sf::FloatRect playerBounds = player->GetGlobalBounds();
+
 	if (bounds.intersects(playerBounds))
 	{
-		attackTimer = 0.f;
-		player->OnTakeDamage(damage);
+		debugBox.SetOutlineColor(sf::Color::Red);
+		if (attackTimer > attackInterval)
+		{
+			attackTimer = 0.f;
+			player->OnTakeDamage(damage);
+		}
 	}
+	else
+		debugBox.SetOutlineColor(sf::Color::Green);
 }
 
 void Zombie::Draw(sf::RenderWindow& window)
 {
 	window.draw(body);
+	debugBox.Draw(window);
 }
