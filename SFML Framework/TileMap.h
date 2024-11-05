@@ -29,6 +29,9 @@ public:
 	void SetInfo(const sf::Vector2u& tileCount, const sf::Vector2f& tileSize, const sf::Vector2u textTileSize);
 	void UpdateTransform();
 
+	sf::FloatRect GetLocalBounds() const override;
+	sf::FloatRect GetGlobalBounds() const override;
+
 public:
 
 	void Init() override;

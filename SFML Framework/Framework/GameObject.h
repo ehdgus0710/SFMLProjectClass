@@ -44,6 +44,11 @@ public:
 		originPreset = Origins::Custom;
 	}
 
+	virtual sf::FloatRect GetLocalBounds() const { return { 0.f , 0.f  , 0.f , 0.f }; }
+	virtual sf::FloatRect GetGlobalBounds() const { return { 0.f , 0.f  , 0.f , 0.f }; }
+
+public:
+
 	virtual void Init();
 	virtual void Release();
 	virtual void Reset();

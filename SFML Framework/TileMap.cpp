@@ -31,8 +31,9 @@ void TileMap::SetOrigin(Origins preset)
 	originPreset = preset;
 	if (originPreset != Origins::Custom)
 	{
-		origin.x = cellCount.x * cellSize.x * ((int)preset % 3) * 0.5f;
-		origin.y = cellCount.y * cellSize.y * ((int)preset / 3) * 0.5f;
+		sf::FloatRect rect = GetLocalBounds();
+		origin.x = rect.width * ((int)preset % 3) * 0.5f;
+		origin.y = rect.height * ((int)preset / 3) * 0.5f;
 		UpdateTransform();
 	}
 }
@@ -201,6 +202,17 @@ void TileMap::UpdateTransform()
 	transform.translate(-origin);
 }
 
+sf::FloatRect TileMap::GetLocalBounds() const
+{
+	return sf::FloatRect(0.f, 0.f, cellCount.x * cellSize.x, cellCount.y * cellSize.y);
+}
+
+sf::FloatRect TileMap::GetGlobalBounds() const
+{
+	sf::FloatRect bounds = GetLocalBounds();
+	return transform.transformRect(bounds);
+}
+
 void TileMap::Update(float dt)
 {
 	direction.x = InputMgr::GetAxis(Axis::Horizontal);
@@ -214,6 +226,11 @@ void TileMap::Update(float dt)
 	if (InputMgr::GetKeyDown(sf::Keyboard::PageUp))
 	{
 		SetRotation(rotation + 1.f);
+	}
+
+	if (InputMgr::GetKeyDown(sf::Keyboard::P))
+	{
+		SetScale(scale += {0.1f, 0.1f});
 	}
 }
 

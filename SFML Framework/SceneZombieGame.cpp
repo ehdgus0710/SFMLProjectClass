@@ -27,6 +27,8 @@ void SceneZombieGame::Release()
 
 void SceneZombieGame::Enter()
 {
+	cameraView.setSize(Framework::Instance().GetWindowSizeFloat());
+	cameraView.setCenter(0.f, 0.f);
 	Scene::Enter();
 }
 
@@ -38,4 +40,9 @@ void SceneZombieGame::Exit()
 void SceneZombieGame::Update(float dt)
 {
 	Scene::Update(dt);
+
+	if (player != nullptr)
+	{
+		cameraView.setCenter(player->GetPosition());
+	}
 }

@@ -74,12 +74,17 @@ void Scene::Draw(sf::RenderWindow& window)
 		drawQueue.push(obj);
 	}
 
+	const sf::View& saveView = window.getView();
+	window.setView(cameraView);
+
 	while (!drawQueue.empty())
 	{
 		GameObject* obj = drawQueue.top();
 		obj->Draw(window);
 		drawQueue.pop();
 	}
+
+	window.setView(saveView);
 }
 
 void Scene::OnPostDraw()
@@ -138,4 +143,14 @@ void Scene::ApplyRemoveGO()
 		gameObjects.remove(go);
 	}
 	removeGameObjects.clear();
+}
+
+sf::Vector2f Scene::ScreenToWorld(sf::Vector2i screenPos)
+{
+	return Framework::Instance().GetRenderWindow().mapPixelToCoords(screenPos);
+}
+
+sf::Vector2i Scene::WorldToScreen(sf::Vector2f screenPos)
+{
+	return Framework::Instance().GetRenderWindow().mapCoordsToPixel(screenPos);
 }

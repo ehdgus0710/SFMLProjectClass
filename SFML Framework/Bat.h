@@ -18,7 +18,7 @@ public:
 	void SetOrigin(Origins preset) override;
 	void SetOrigin(const sf::Vector2f& newOrigin) override;
 
-	sf::FloatRect GetGlobalBounds() const { return body.getGlobalBounds(); }
+	sf::FloatRect GetGlobalBounds() const override { return body.getGlobalBounds(); }
 
 public:
 	void Init() override;

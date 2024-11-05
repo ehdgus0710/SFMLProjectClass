@@ -1,14 +1,15 @@
 #pragma once
 
+class SceneZombieGame;
 
 class Player : public GameObject
 {
 protected:
-	sf::Sprite body;
-	std::string textureId;
+	sf::Sprite			body;
+	std::string			textureId;
 
-	sf::Vector2f direction;
-	sf::Vector2f lookDirection;
+	sf::Vector2f		direction;
+	sf::Vector2f		lookDirection;
 	float speed;
 
 public:

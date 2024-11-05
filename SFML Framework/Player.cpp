@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "Scene.h"
 
 Player::Player(const std::string& name)
 	: GameObject(name)
@@ -70,8 +71,8 @@ void Player::Update(float dt)
 
 	if(direction.SqrMagnitude() > 1.f)
 		direction.Normalized();
-
-	lookDirection = (sf::Vector2f)InputMgr::GetMousePosition() - position;
+	
+	lookDirection = (sf::Vector2f)SceneMgr::Instance().GetCurrentScene()->ScreenToWorld(InputMgr::GetMousePosition()) - position;
 	SetRotation(Utils::Angle(Utils::GetNormal(lookDirection)));
 
 	SetPosition(position + direction * speed * dt);

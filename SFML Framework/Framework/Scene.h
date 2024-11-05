@@ -7,24 +7,11 @@ protected:
 	std::list<GameObject*> addGameObjects;
 	std::list<GameObject*> removeGameObjects;
 
+	sf::View cameraView;
+
 public:
 	const SceneIds id;
 
-	Scene(SceneIds id);
-	virtual ~Scene() = default;
-
-	virtual void Init();
-	virtual void Release();
-
-	virtual void Enter();
-	virtual void Exit();
-
-	virtual void Update(float dt);
-	virtual void LateUpdate(float dt);
-
-	virtual void OnPreDraw();
-	virtual void Draw(sf::RenderWindow& window);
-	virtual void OnPostDraw();
 
 	template<typename T>
 	T* AddGo(T* obj)
@@ -39,6 +26,28 @@ public:
 
 	void ApplyAddGo();
 	void ApplyRemoveGO();
+
+	sf::Vector2f ScreenToWorld(sf::Vector2i screenPos);
+	sf::Vector2i WorldToScreen(sf::Vector2f screenPos);
+
+public:
+	virtual void Init();
+	virtual void Release();
+
+	virtual void Enter();
+	virtual void Exit();
+
+	virtual void Update(float dt);
+	virtual void LateUpdate(float dt);
+
+	virtual void OnPreDraw();
+	virtual void Draw(sf::RenderWindow& window);
+	virtual void OnPostDraw();
+		
+public:
+	Scene(SceneIds id);
+	virtual ~Scene() = default;
+
 
 };
 
