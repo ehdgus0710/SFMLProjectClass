@@ -2,14 +2,20 @@
 #include "Scene.h"
 
 class Player;
+class Zombie;
 
 class SceneZombieGame : public Scene
 {
 protected:
 	Player* player;
 
-public:
+	std::list<Zombie*> zombieList;
+	ObjectPool<Zombie> zombiePool;
 
+public:
+	void SpawnZombies(int count);
+
+public:
 	void Init() override;
 	void Release() override;
 	void Enter() override;

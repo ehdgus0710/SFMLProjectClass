@@ -81,6 +81,9 @@
     <ClCompile Include="TileMap.cpp">
       <Filter>TileMap</Filter>
     </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\InputMgr.h">
@@ -145,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="TileMap.h">
       <Filter>TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>Contants\ZombieGame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

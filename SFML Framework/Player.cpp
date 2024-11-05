@@ -44,7 +44,6 @@ void Player::SetOrigin(const sf::Vector2f& newOrigin)
 	originPreset = Origins::Custom;
 	origin = newOrigin;
 	body.setOrigin(newOrigin);
-
 }
 
 void Player::Init()
@@ -58,8 +57,8 @@ void Player::Release()
 void Player::Reset()
 {
 	body.setTexture(TEXTURE_MGR.Get(textureId));
-	SetOrigin(originPreset);
 	SetPosition(sf::Vector2f::zero);
+	SetOrigin(Origins::MC);
 	SetRotation(0.f);
 	direction = sf::Vector2f::right;
 }

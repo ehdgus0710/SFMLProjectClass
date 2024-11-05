@@ -167,6 +167,7 @@
     <ClCompile Include="ScenePongGame.cpp" />
     <ClCompile Include="SceneZombieGame.cpp" />
     <ClCompile Include="TileMap.cpp" />
+    <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="ScenePongGame.h" />
     <ClInclude Include="SceneZombieGame.h" />
     <ClInclude Include="TileMap.h" />
+    <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
