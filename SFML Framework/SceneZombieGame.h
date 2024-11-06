@@ -6,12 +6,14 @@ class TileMap;
 class Zombie;
 class Bullet;
 class Item;
+class UiHub;
 
 class SceneZombieGame : public Scene
 {
 protected:
 	Player* player;
 	TileMap* tileMap;
+	UiHub* uiHub;
 
 
 	std::list<Zombie*> zombieList;

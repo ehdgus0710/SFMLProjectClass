@@ -12,6 +12,8 @@ public:
 
 	void SetTextureId(const std::string& id) { textureId = id; }
 
+	void CreateCollider() override;
+
 	void SetOrigin(Origins preset);
 	void SetOrigin(const sf::Vector2f& newOrigin);	
 	float GetRotation() const override;

@@ -6,6 +6,10 @@ SpriteGo::SpriteGo(const std::string& texId, const std::string& name)
 {
 }
 
+void SpriteGo::CreateCollider()
+{
+}
+
 void SpriteGo::SetOrigin(Origins preset)
 {
 	originPreset = preset;

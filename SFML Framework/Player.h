@@ -10,6 +10,8 @@ protected:
 	SceneZombieGame*	sceneGame;
 	sf::FloatRect		moveableRect;
 
+	DebugBox		debugBox;
+
 	sf::Vector2f		direction;
 	sf::Vector2f		lookDirection;
 	float				speed;
@@ -35,11 +37,16 @@ public:
 	sf::FloatRect GetLocalBounds() const  override;
 	sf::FloatRect GetGlobalBounds() const override;
 
+
+	void CreateCollider() override;
+
 	void Shoot();
 
 	void OnTakeDamage(int takeDamage);
 	void AddHp(int hp);
 	void AddDelayTime(float delay);
+
+	sf::RectangleShape& GetRectangleShape() { return debugBox.shape; }
 
 public:
 	void Init() override;

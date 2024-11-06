@@ -1,5 +1,7 @@
 #pragma once
 
+class Collider;
+
 class GameObject
 {
 protected:
@@ -14,12 +16,9 @@ protected:
 	Origins originPreset;
 	sf::Vector2f origin;
 
-public:
-	SortingLayers sortingLayer = SortingLayers::Default;
-	int sortingOrder = 0;
+	Collider* collider;
 
-	GameObject(const std::string& name = "");
-	virtual ~GameObject() = default;
+public:
 
 	const std::string& GetName() const { return name; }
 	void SetName(const std::string& n) { name = n; }
@@ -44,6 +43,8 @@ public:
 		originPreset = Origins::Custom;
 	}
 
+	virtual void CreateCollider();
+
 	virtual sf::FloatRect GetLocalBounds() const { return { 0.f , 0.f  , 0.f , 0.f }; }
 	virtual sf::FloatRect GetGlobalBounds() const { return { 0.f , 0.f  , 0.f , 0.f }; }
 
@@ -56,6 +57,13 @@ public:
 	virtual void LateUpdate(float dt) {}
 	virtual void FixedUpdate(float dt) {}
 	virtual void Draw(sf::RenderWindow& window);
+
+public:
+	SortingLayers sortingLayer = SortingLayers::Default;
+	int sortingOrder = 0;
+
+	GameObject(const std::string& name = "");
+	virtual ~GameObject();
 };
 
 struct DrawOrderComparer

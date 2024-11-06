@@ -6,6 +6,7 @@
 
 #include "Bullet.h"
 #include "Item.h"
+#include "UiHub.h"
 
 SceneZombieGame::SceneZombieGame()
 	: Scene(SceneIds::Game)
@@ -98,6 +99,7 @@ void SceneZombieGame::Init()
 	tileMap = AddGo(new TileMap("TileMap"));
 	player = AddGo(new Player("Player"));
 	player->SetOrigin(Origins::MC);
+	uiHub = AddGo(new UiHub());
 
 	Scene::Init();
 }
@@ -111,6 +113,10 @@ void SceneZombieGame::Enter()
 {
 	cameraView.setSize(Framework::Instance().GetWindowSizeFloat());
 	cameraView.setCenter(0.f, 0.f);
+
+	uiView = Framework::Instance().GetRenderWindow().getDefaultView();
+	//uiView.setSize(Framework::Instance().GetWindowSizeFloat());
+	uiView.setCenter(Framework::Instance().GetWindowSizeFloat() * 0.5f);
 	Scene::Enter();
 
 	moveableRect = tileMap->GetGlobalBounds();

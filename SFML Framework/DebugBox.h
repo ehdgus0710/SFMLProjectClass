@@ -2,8 +2,10 @@
 
 class DebugBox
 {
-private:
+
+public:
 	sf::RectangleShape shape;
+private:
 	bool isVisible;
 
 public:

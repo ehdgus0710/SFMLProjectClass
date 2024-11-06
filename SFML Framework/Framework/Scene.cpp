@@ -82,12 +82,22 @@ void Scene::OnPreDraw()
 void Scene::Draw(sf::RenderWindow& window)
 {
 	std::priority_queue<GameObject*, std::vector<GameObject*>, DrawOrderComparer> drawQueue;
+	std::priority_queue<GameObject*, std::vector<GameObject*>, DrawOrderComparer> drawUiQueue;
 
 	for (auto obj : gameObjects)
 	{
 		if (!obj->IsActive())
 			continue;
-		drawQueue.push(obj);
+
+		if (obj->sortingLayer >= SortingLayers::UI)
+		{
+			drawUiQueue.push(obj);
+		}
+
+		else
+		{
+			drawQueue.push(obj);
+		}
 	}
 
 	const sf::View& saveView = window.getView();
@@ -98,6 +108,14 @@ void Scene::Draw(sf::RenderWindow& window)
 		GameObject* obj = drawQueue.top();
 		obj->Draw(window);
 		drawQueue.pop();
+	}
+
+	window.setView(uiView);
+	while (!drawUiQueue.empty())
+	{
+		GameObject* obj = drawUiQueue.top();
+		obj->Draw(window);
+		drawUiQueue.pop();
 	}
 
 	window.setView(saveView);
@@ -163,10 +181,30 @@ void Scene::ApplyRemoveGO()
 
 sf::Vector2f Scene::ScreenToWorld(sf::Vector2i screenPos)
 {
-	return Framework::Instance().GetRenderWindow().mapPixelToCoords(screenPos);
+	return Framework::Instance().GetRenderWindow().mapPixelToCoords(screenPos, cameraView);
 }
 
 sf::Vector2i Scene::WorldToScreen(sf::Vector2f screenPos)
 {
-	return Framework::Instance().GetRenderWindow().mapCoordsToPixel(screenPos);
+	return Framework::Instance().GetRenderWindow().mapCoordsToPixel(screenPos, cameraView);
+}
+
+sf::Vector2f Scene::ScreenToUI(sf::Vector2i screenPos)
+{
+	return Framework::Instance().GetRenderWindow().mapPixelToCoords(screenPos, uiView);
+}
+
+sf::Vector2i Scene::UIToScreen(sf::Vector2f screenPos)
+{
+	return Framework::Instance().GetRenderWindow().mapCoordsToPixel(screenPos, uiView);
+}
+
+sf::Vector2f Scene::ScreenToWorld(const sf::View& view, sf::Vector2i screenPos)
+{
+	return Framework::Instance().GetRenderWindow().mapPixelToCoords(screenPos, view);
+}
+
+sf::Vector2i Scene::WorldToScreen(const sf::View& view, sf::Vector2f screenPos)
+{
+	return Framework::Instance().GetRenderWindow().mapCoordsToPixel(screenPos, view);
 }

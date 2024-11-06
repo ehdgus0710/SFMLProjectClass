@@ -170,3 +170,105 @@ sf::Vector2f Utils::SetOrigin(sf::Sprite& obj, Origins preset)
 {
     return SetOrigin(obj, preset, obj.getLocalBounds());
 }
+
+bool Utils::CheckCollision(const sf::RectangleShape& shapeA, const sf::RectangleShape& shapeB)
+{
+    // 각각 4개의 꼭지점을 얻기
+    auto pointsA = GetShapePoints(shapeA);
+    auto pointsB = GetShapePoints(shapeB);
+    return PolygonsIntersect(pointsA, shapeA.getTransform(), pointsB, shapeB.getTransform());
+}
+
+bool Utils::CheckCollision(const sf::Sprite& shapeA, const sf::Sprite& shapeB)
+{
+    auto pointsA = GetShapePoints(shapeA);
+    auto pointsB = GetShapePoints(shapeB);
+    return PolygonsIntersect(pointsA, shapeA.getTransform(), pointsB, shapeB.getTransform());
+}
+
+bool Utils::PointInTransformBounds(const sf::Transformable& transformalbe, const sf::FloatRect& localBounds, const sf::Vector2f& point)
+{
+    sf::Transform inverse = transformalbe.getInverseTransform();
+    auto localPoint = inverse.transformPoint(point);
+    return localBounds.contains(localPoint);
+}
+
+std::vector<sf::Vector2f> Utils::GetShapePoints(const sf::RectangleShape& shape)
+{
+    sf::FloatRect localBounds = shape.getLocalBounds();
+    return GetRectanglePointsFromBounds(localBounds);
+}
+
+std::vector<sf::Vector2f> Utils::GetShapePoints(const sf::Sprite& sprite)
+{
+    sf::FloatRect localBounds = sprite.getLocalBounds();
+    return GetRectanglePointsFromBounds(localBounds);
+}
+
+std::vector<sf::Vector2f> Utils::GetRectanglePointsFromBounds(const sf::FloatRect& localBounds)
+{
+    std::vector<sf::Vector2f> points(4);
+    points[0] = sf::Vector2f(localBounds.left, localBounds.top);
+    points[1] = sf::Vector2f(localBounds.left + localBounds.width, localBounds.top);
+    points[2] = sf::Vector2f(localBounds.left + localBounds.width, localBounds.top + localBounds.height);
+    points[3] = sf::Vector2f(localBounds.left, localBounds.top + localBounds.height);
+    return points;
+}
+
+bool Utils::PolygonsIntersect(const std::vector<sf::Vector2f>& polygonA, const sf::Transform& transformA, const std::vector<sf::Vector2f>& polygonB, const sf::Transform& transformB)
+{
+    // 축을 만듬
+    std::vector<sf::Vector2f> axes;
+    int countA = polygonA.size();
+    for (int i = 0; i < countA; ++i)
+    {
+        sf::Vector2f p1 = transformA.transformPoint(polygonA[i]);
+        sf::Vector2f p2 = transformA.transformPoint(polygonA[(i + 1) % countA]);
+        // 방향 벡터 구하기
+        sf::Vector2f edge = p2 - p1;
+        sf::Vector2f normal(-edge.y, edge.x);
+        axes.push_back(Utils::GetNormal(normal));
+    }
+
+    int countB = polygonB.size();
+    for (int i = 0; i < countB; ++i)
+    {
+        sf::Vector2f p1 = transformB.transformPoint(polygonB[i]);
+        sf::Vector2f p2 = transformB.transformPoint(polygonB[(i + 1) % countB]);
+        sf::Vector2f edge = p2 - p1;
+        sf::Vector2f normal(-edge.y, edge.x);
+        axes.push_back(Utils::GetNormal(normal));
+    }
+
+    // 모든 축마다 최대 값 최소 값을 구해서 비교
+
+    for (const auto& axis : axes)
+    {
+        float minA = std::numeric_limits<float>::max();
+        float maxA = std::numeric_limits<float>::lowest();
+        // 투영
+        for (const auto& point : polygonA)
+        {
+            sf::Vector2f transformedPoint = transformA.transformPoint(point);
+            float projection = Dot(axis, transformedPoint);
+            minA = std::min(minA, projection);
+            maxA = std::max(maxA, projection);
+        }
+
+        float minB = std::numeric_limits<float>::max();
+        float maxB = std::numeric_limits<float>::lowest();
+        for (const auto& point : polygonB)
+        {
+            sf::Vector2f transformedPoint = transformB.transformPoint(point);
+            float projection = Dot(axis, transformedPoint);
+            minB = std::min(minB, projection);
+            maxB = std::max(maxB, projection);
+        }
+
+        if (maxA < minB || maxB < minA)
+        {
+            return false;
+        }
+    }
+    return true;
+}

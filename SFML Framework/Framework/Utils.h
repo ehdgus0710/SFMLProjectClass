@@ -48,6 +48,14 @@ public:
 
 	static float Dot(const sf::Vector2f& leftVector, const sf::Vector2f& rightVector);
 
+	static bool CheckCollision(const sf::RectangleShape& shapeA, const sf::RectangleShape& shapeB);
+	static bool CheckCollision(const sf::Sprite& shapeA, const sf::Sprite& shapeB);
+	static bool PointInTransformBounds(const sf::Transformable& transformalbe, const sf::FloatRect& localBounds, const sf::Vector2f& point);
+
+	static std::vector<sf::Vector2f> GetShapePoints(const sf::RectangleShape& shape);
+	static std::vector<sf::Vector2f> GetShapePoints(const sf::Sprite& sprite);
+	static std::vector<sf::Vector2f> GetRectanglePointsFromBounds(const sf::FloatRect& localBounds);
+	static bool PolygonsIntersect(const std::vector<sf::Vector2f>& polygonA, const sf::Transform& transformA, const std::vector<sf::Vector2f>& polygonB, const sf::Transform& transformB);
 
 };
 

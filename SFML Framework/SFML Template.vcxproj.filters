@@ -96,6 +96,12 @@
     <ClCompile Include="Framework\Utils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UiHub.cpp">
+      <Filter>Contants\ZombieGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\InputMgr.h">
@@ -172,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="DebugBox.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UiHub.h">
+      <Filter>Contants\ZombieGame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

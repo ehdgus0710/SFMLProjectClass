@@ -3,6 +3,7 @@
 #include "Scene.h"
 #include "Bullet.h"
 #include "SceneZombieGame.h"
+#include "Collider.h"
 
 Player::Player(const std::string& name)
 	: GameObject(name)
@@ -19,24 +20,39 @@ Player::Player(const std::string& name)
 	sortingLayer = SortingLayers::Foreground;
 	sortingOrder = 0;
 	SetOrigin(Origins::MC);
+	CreateCollider();
 }
 
 void Player::SetPosition(const sf::Vector2f& pos)
 {
 	position = pos;
 	body.setPosition(position);
+
+	if (collider)
+	{
+		collider->SetPosition(position);
+	}
 }
 
 void Player::SetRotation(float angle)
 {
 	rotation = angle;
 	body.setRotation(rotation);
+
+	if (collider)
+	{
+		collider->SetRotation(rotation);
+	}
 }
 
 void Player::SetScale(const sf::Vector2f& s)
 {
 	scale = s;
 	body.setScale(scale);
+	if (collider)
+	{
+		collider->SetSize(scale);
+	}
 }
 
 void Player::SetOrigin(Origins preset)
@@ -53,6 +69,13 @@ void Player::SetOrigin(const sf::Vector2f& newOrigin)
 	originPreset = Origins::Custom;
 	origin = newOrigin;
 	body.setOrigin(newOrigin);
+}
+
+void Player::CreateCollider()
+{
+	collider = new Collider(position, scale);
+	collider->SetOrigin(originPreset);
+	collider->Reset();
 }
 
 void Player::Shoot()
@@ -108,6 +131,12 @@ void Player::Reset()
 	hp = maxHp;
 	shootDelay = defalutDelayTime;
 
+	if (collider != nullptr)
+	{
+		collider->SetSize((sf::Vector2f)body.getTexture()->getSize());
+		collider->SetScale({ 1.5f,1.5f });
+		collider->Reset();
+	}
 
 	sceneGame = dynamic_cast<SceneZombieGame*>(SceneMgr::Instance().GetCurrentScene());
 }
@@ -138,6 +167,8 @@ void Player::Update(float dt)
 		Shoot();
 		shootTimer = 0.f;
 	}
+
+	debugBox.SetBounds(body.getGlobalBounds());
 }
 
 sf::FloatRect Player::GetLocalBounds() const
@@ -153,4 +184,8 @@ sf::FloatRect Player::GetGlobalBounds() const
 void Player::Draw(sf::RenderWindow& window)
 {
 	window.draw(body);
+	// debugBox.Draw(window);
+
+	if (collider != nullptr)
+		collider->Draw(window);
 }

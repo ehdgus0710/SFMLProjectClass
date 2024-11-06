@@ -163,12 +163,18 @@ void Zombie::FixedUpdate(float dt)
 
 	if (bounds.intersects(playerBounds))
 	{
-		debugBox.SetOutlineColor(sf::Color::Red);
-		if (attackTimer > attackInterval)
+
+		/*if (Utils::CheckCollision(body, player->GetB))
 		{
-			attackTimer = 0.f;
-			player->OnTakeDamage(damage);
-		}
+			debugBox.SetOutlineColor(sf::Color::Red);
+			if (attackTimer > attackInterval)
+			{
+				attackTimer = 0.f;
+				player->OnTakeDamage(damage);
+			}
+		}*/
+
+		
 	}
 	else
 		debugBox.SetOutlineColor(sf::Color::Green);

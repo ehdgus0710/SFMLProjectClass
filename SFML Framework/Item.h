@@ -20,6 +20,8 @@ protected:
 	sf::Sprite	body;
 	std::string textureId;
 
+	DebugBox box;
+
 	int value;
 
 public:
