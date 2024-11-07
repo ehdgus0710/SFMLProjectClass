@@ -181,6 +181,10 @@ void SceneZombieGame::Release()
 
 void SceneZombieGame::Enter()
 {
+	SoundMgr::Instance().SetBgmVolume(10.f);
+	SoundMgr::Instance().SetSfxVolume(2.f);
+	SoundMgr::Instance().PlayBgm(SOUNDBUFFER_MGR.Get("sound/cunning_city.mp3"));
+
 	FRAMEWORK.GetRenderWindow().setMouseCursorVisible(false);
 	cursor.setTexture(TEXTURE_MGR.Get("graphics/crosshair.png"));
 	Utils::SetOrigin(cursor, Origins::MC);
@@ -248,6 +252,9 @@ void SceneZombieGame::Exit()
 
 
 	uiUpgrade->Release();
+
+	SoundMgr::Instance().StopAllSfx();
+	SoundMgr::Instance().StopBgm();
 	Scene::Exit();
 
 	FRAMEWORK.GetRenderWindow().setMouseCursorVisible(true);

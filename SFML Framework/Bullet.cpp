@@ -65,6 +65,7 @@ void Bullet::Fire(const sf::Vector2f& position, const sf::Vector2f& direction, f
 	this->damage = damage;
 
 	SetRotation(Utils::Angle(direction));
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/shoot.wav"));
 }
 
 void Bullet::Init()

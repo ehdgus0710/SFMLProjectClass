@@ -111,7 +111,10 @@ void Zombie::OnDamage(GameObject* target, int d)
 	if (hp <= 0)
 	{
 		sceneGame->OnZombieDie(this);
+		SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/death.wav"));
 	}
+	else
+		SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hit.wav"));
 }
 
 void Zombie::Init()

@@ -137,10 +137,15 @@ void Player::AddDelayTime(float delay)
 void Player::IsReload()
 {
 	if (isReload && totalAmmoCount == 0)
+	{
+		if(totalAmmoCount == 0)
+			SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/reload_failed.wav"));
 		return;
+	}
 
 	isReload = true;
 	currentReloadTime = reloadTime;
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/reload.wav"));
 }
 
 void Player::OnReload()

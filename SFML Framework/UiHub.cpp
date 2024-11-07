@@ -148,6 +148,7 @@ void UiHub::Reset()
 
 void UiHub::Update(float dt)
 {
+	
 }
 
 void UiHub::Draw(sf::RenderWindow& window)

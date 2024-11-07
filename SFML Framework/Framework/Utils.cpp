@@ -1,5 +1,3 @@
-#define _USE_MATH_DEFINES
-
 #include "stdafx.h"
 #include "Utils.h"
 #include <cmath>
@@ -219,7 +217,7 @@ bool Utils::PolygonsIntersect(const std::vector<sf::Vector2f>& polygonA, const s
 {
     // √‡¿ª ∏∏µÎ
     std::vector<sf::Vector2f> axes;
-    int countA = polygonA.size();
+    int countA = (int)polygonA.size();
     for (int i = 0; i < countA; ++i)
     {
         sf::Vector2f p1 = transformA.transformPoint(polygonA[i]);
@@ -230,7 +228,7 @@ bool Utils::PolygonsIntersect(const std::vector<sf::Vector2f>& polygonA, const s
         axes.push_back(Utils::GetNormal(normal));
     }
 
-    int countB = polygonB.size();
+    int countB = (int)polygonB.size();
     for (int i = 0; i < countB; ++i)
     {
         sf::Vector2f p1 = transformB.transformPoint(polygonB[i]);

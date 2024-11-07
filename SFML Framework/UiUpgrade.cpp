@@ -102,31 +102,37 @@ void UiUpgrade::SetTextInfo()
 void UiUpgrade::OnUpgradeRateOfFire()
 {
 	player->AddDelayTime(0.05f);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/powerup.wav"));
 }
 
 void UiUpgrade::OnUpgradeClipSizeCnextReload()
 {
 	player->AddMaxAmmoCount(30);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/powerup.wav"));
 }
 
 void UiUpgrade::OnUpgradeMaxHealth()
 {
 	player->AddMaxHp(20);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/powerup.wav"));
 }
 
 void UiUpgrade::OnUpgradeRunSpeed()
 {
 	player->AddMoveSpeed(50.f);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/powerup.wav"));
 }
 
 void UiUpgrade::OnUpgradeHealthPickups()
 {
 	sceneGame->SubItemSpawnTime(0.2f);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/pickup.wav"));
 }
 
 void UiUpgrade::OnUpgradeAmmoPickups()
 {
 	sceneGame->SubItemSpawnTime(0.2f);
+	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/pickup.wav"));
 }
 
 void UiUpgrade::Init()

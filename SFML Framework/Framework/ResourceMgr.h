@@ -12,11 +12,10 @@ protected:
 	ResourceMgr() = default;
 	~ResourceMgr()
 	{
-		for (const auto& pair : resources)
+		for (auto pair : resources)
 		{
 			delete pair.second;
 		}
-		resources.clear();
 	}
 
 	ResourceMgr(const ResourceMgr&) = delete;
@@ -27,17 +26,18 @@ public:
 
 	void UnloadAll()
 	{
-		auto iter = resources.begin();
-
-		while (iter != resources.end())
+		auto it = resources.begin();
+		while (it != resources.end())
 		{
-			if (notUnloadAllResrouces.find(iter->first) != notUnloadAllResrouces.end())
+			if (notUnloadAllResrouces.find(it->first) == notUnloadAllResrouces.end())
 			{
-				delete iter->second;
-				iter = resources.erase(iter);
+				delete it->second;
+				it = resources.erase(it);
 			}
 			else
-				++iter;
+			{
+				++it;
+			}
 		}
 	}
 
@@ -51,7 +51,10 @@ public:
 		if (success)
 		{
 			resources.insert({ id, resource });
-			notUnloadAllResrouces.insert(id);
+			if (notUnloadAll)
+			{
+				notUnloadAllResrouces.insert(id);
+			}
 		}
 		else
 		{
@@ -74,7 +77,6 @@ public:
 		{
 			notUnloadAllResrouces.erase(find);
 		}
-
 		return true;
 	}
 
