@@ -28,6 +28,9 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{6f0651d3-487b-4945-b502-9969a9869af6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contants\ZombieGame\UI">
+      <UniqueIdentifier>{71329547-8dd8-43eb-9e92-72e75e34afbb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\main.cpp">
@@ -99,8 +102,23 @@
     <ClCompile Include="Collider.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="UiUpgrade.cpp">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UiGameOver.cpp">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClCompile>
     <ClCompile Include="UiHub.cpp">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundMgr.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieBloodEffect.cpp">
       <Filter>Contants\ZombieGame</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveInfo.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -182,8 +200,23 @@
     <ClInclude Include="Collider.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="UiUpgrade.h">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UiGameOver.h">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClInclude>
     <ClInclude Include="UiHub.h">
+      <Filter>Contants\ZombieGame\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundMgr.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieBloodEffect.h">
       <Filter>Contants\ZombieGame</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveInfo.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

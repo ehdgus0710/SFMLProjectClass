@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <algorithm>
 #include <iostream>
+#include <unordered_set>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -20,4 +21,6 @@
 #include "SceneMgr.h"
 #include "ObjectPool.h"
 #include "DebugBox.h"
+#include "SoundMgr.h"
+
 

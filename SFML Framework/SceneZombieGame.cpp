@@ -7,13 +7,21 @@
 #include "Bullet.h"
 #include "Item.h"
 #include "UiHub.h"
+#include "UiUpgrade.h"
+#include "UiGameOver.h"
+#include "ZombieBloodEffect.h"
 
 SceneZombieGame::SceneZombieGame()
 	: Scene(SceneIds::Game)
 	, player(nullptr)
 	, tileMap(nullptr)
+	, defaultCreateItemTime(3.f)
 	, createItemTime(0.5f)
 	, currentItemTime(0.f)
+	, score(0)
+	, maxScore(0)
+	, waveIndex(0)
+	, isUpgrade(true)
 {
 }
 
@@ -23,8 +31,6 @@ SceneZombieGame::~SceneZombieGame()
 
 void SceneZombieGame::SpawnZombies(int count)
 {
-
-
 	for (int i = 0; i < count; ++i)
 	{
 		Zombie* zombie = zombiePool.Take();
@@ -59,6 +65,18 @@ void SceneZombieGame::SpawnItem(int count)
 	}
 }
 
+void SceneZombieGame::CreateBloodEffect(const sf::Vector2f& position, float angle)
+{
+	ZombieBloodEffect* zombieBloodEffect = bloodEffectPool.Take();
+	bloodEffectList.push_back(zombieBloodEffect);
+	zombieBloodEffect->SetOrigin(Origins::MC);
+	zombieBloodEffect->SetPosition(position);
+	zombieBloodEffect->SetRotation(angle);
+	zombieBloodEffect->SetScene(this);
+
+	AddGo(zombieBloodEffect);
+}
+
 Bullet* SceneZombieGame::TakeBullet()
 {
 	Bullet* bullet = bulletPool.Take();
@@ -78,6 +96,18 @@ void SceneZombieGame::OnZombieDie(Zombie* zombie)
 	RemoveGo(zombie);
 	zombiePool.Return(zombie);
 	zombieList.remove(zombie);
+
+	CreateBloodEffect(zombie->GetPosition(), zombie->GetRotation() + 180.f);
+
+	uiHub->SetZombieCount((int)zombieList.size());
+
+	score += 10;
+	if (maxScore < score)
+	{
+		maxScore = score;
+		uiHub->SetHiScore(maxScore);
+	}
+	uiHub->SetScore(score);
 }
 
 void SceneZombieGame::ReturnBullet(Bullet* bullet)
@@ -94,23 +124,67 @@ void SceneZombieGame::ReturnItem(Item* item)
 	itemList.remove(item);
 }
 
+void SceneZombieGame::ReturnBloodEffect(ZombieBloodEffect* bloodEffect)
+{
+	RemoveGo(bloodEffect);
+	bloodEffectPool.Return(bloodEffect);
+	bloodEffectList.remove(bloodEffect);
+}
+
+void SceneZombieGame::OnPlayerDie()
+{
+	Framework::Instance().SetTimeScale(0.f);
+	uiGameOver->SetActive(true);
+}
+
+void SceneZombieGame::CreateWave(WaveInfo* wave)
+{
+	waveInfos.push_back(wave);
+}
+
+void SceneZombieGame::StartWave()
+{
+	currentWaveInfo = *waveInfos[waveIndex++];
+	uiHub->SetWave(waveIndex);
+	uiUpgrade->SetActive(false);
+	isUpgrade = false;
+}
+
 void SceneZombieGame::Init()
 {
 	tileMap = AddGo(new TileMap("TileMap"));
 	player = AddGo(new Player("Player"));
+	uiUpgrade = AddGo(new UiUpgrade("Player"));
 	player->SetOrigin(Origins::MC);
-	uiHub = AddGo(new UiHub());
+	uiHub = AddGo(new UiHub("UIStatus"));
+	uiGameOver = AddGo(new UiGameOver("fonts/zombiecontrol.ttf", "GameOver"));
+
+	for (int i = 0; i < 10; ++i)
+	{
+		CreateWave(new WaveInfo((i + 1) * 10, 0.5f - (i * 0.03f)));
+	}
 
 	Scene::Init();
 }
 
 void SceneZombieGame::Release()
 {
+	int size = (int)waveInfos.size();
+	for (int i = 0; i < size; ++i)
+	{
+		delete waveInfos[i];
+	}
+	waveInfos.clear();
+
 	Scene::Release();
 }
 
 void SceneZombieGame::Enter()
 {
+	FRAMEWORK.GetRenderWindow().setMouseCursorVisible(false);
+	cursor.setTexture(TEXTURE_MGR.Get("graphics/crosshair.png"));
+	Utils::SetOrigin(cursor, Origins::MC);
+
 	cameraView.setSize(Framework::Instance().GetWindowSizeFloat());
 	cameraView.setCenter(0.f, 0.f);
 
@@ -127,7 +201,19 @@ void SceneZombieGame::Enter()
 	moveableRect.left += cellSize.x;
 	moveableRect.top += cellSize.y;
 
+	uiGameOver->text.setCharacterSize(200);
+	uiGameOver->text.setString("PRESS ENTER\nTO CONTINUE");
+	uiGameOver->SetPosition(Framework::Instance().GetWindowSizeFloat() * 0.5f);
+	uiGameOver->SetOrigin(Origins::MC);
+	uiGameOver->SetActive(false);
+
 	player->SetMoveableRect(moveableRect);
+	player->ResetStatus();
+
+	currentItemTime = defaultCreateItemTime;
+
+
+	FRAMEWORK.SetTimeScale(0.f);
 }
 
 void SceneZombieGame::Exit()
@@ -151,12 +237,25 @@ void SceneZombieGame::Exit()
 		RemoveGo(iter);
 		itemPool.Return(iter);
 	}
-	bulletList.clear();
+	itemList.clear();
+
+	for (auto& iter : bloodEffectList)
+	{
+		RemoveGo(iter);
+		bloodEffectPool.Return(iter);
+	}
+	bloodEffectList.clear();
+
+
+	uiUpgrade->Release();
 	Scene::Exit();
+
+	FRAMEWORK.GetRenderWindow().setMouseCursorVisible(true);
 }
 
 void SceneZombieGame::Update(float dt)
 {
+	cursor.setPosition(ScreenToUI(InputMgr::GetMousePosition()));
 	Scene::Update(dt);
 
 	if (InputMgr::GetKeyDown(sf::Keyboard::Escape))
@@ -165,9 +264,27 @@ void SceneZombieGame::Update(float dt)
 		SCENE_MGR.ChangeScene(SceneIds::Game);
 	}
 
-	if (InputMgr::GetKeyDown(sf::Keyboard::Space))
+	if (!currentWaveInfo.isSpawnEnd && currentWaveInfo.currentSpawnTime > currentWaveInfo.spwanTime)
 	{
-		SpawnZombies(10);
+		currentWaveInfo.spwanCount++;
+		currentWaveInfo.currentSpawnTime = 0.f;
+ 		SpawnZombies(1);
+		uiHub->SetZombieCount((int)zombieList.size());
+
+		if (currentWaveInfo.spwanCount >= currentWaveInfo.totalSpawnCount)
+		{
+			currentWaveInfo.isSpawnEnd = true;
+		}
+	}
+	else
+	{
+		currentWaveInfo.currentSpawnTime += dt;
+	}
+
+	if (currentWaveInfo.isSpawnEnd && zombieList.size() == 0 && !isUpgrade)
+	{
+		uiUpgrade->SetActive(true);
+		FRAMEWORK.SetTimeScale(0.f);
 	}
 
 	if (player != nullptr)
@@ -181,4 +298,15 @@ void SceneZombieGame::Update(float dt)
 		SpawnItem(1);
 		currentItemTime = 0.f;
 	}
+}
+
+void SceneZombieGame::Draw(sf::RenderWindow& window)
+{
+	Scene::Draw(window);
+
+	const sf::View& saveView = window.getView();
+	window.setView(uiView);
+	window.draw(cursor);
+	window.setView(saveView);
+
 }

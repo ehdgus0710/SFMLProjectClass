@@ -1,6 +1,15 @@
 #pragma once
 
 class SceneZombieGame;
+class UiHub;
+
+struct Status
+{
+	int					maxHp;
+	float				speed;
+	int					maxAmmoCount;
+	float				shootDelay;
+};
 
 class Player : public GameObject
 {
@@ -10,20 +19,30 @@ protected:
 	SceneZombieGame*	sceneGame;
 	sf::FloatRect		moveableRect;
 
-	DebugBox		debugBox;
+	UiHub*				uiHub;
 
 	sf::Vector2f		direction;
 	sf::Vector2f		lookDirection;
-	float				speed;
+	Status				currentStatus;
+	Status				defaultStatus;
+	
+	int					currentAmmoCount;
 
-	int					maxHp;
 	int					hp;
+	int					damage;
 
+	bool				isInvulnerability;
+	float				InvulnerabilityTime;
+	float				currentInvulnerabilityTime;
+
+	int					totalAmmoCount;
 	float				shootTimer;
-	float				shootDelay;
 	float				maxDelayTime;
-	float				defalutDelayTime;
+	float				defaultDelayTime;
+	float				reloadTime;
+	float				currentReloadTime;
 
+	bool isReload;
 
 public:
 	void SetPosition(const sf::Vector2f& pos) override;
@@ -37,6 +56,8 @@ public:
 	sf::FloatRect GetLocalBounds() const  override;
 	sf::FloatRect GetGlobalBounds() const override;
 
+	void AddTotalAmmo(int count);
+	void ResetStatus();
 
 	void CreateCollider() override;
 
@@ -45,8 +66,13 @@ public:
 	void OnTakeDamage(int takeDamage);
 	void AddHp(int hp);
 	void AddDelayTime(float delay);
+	void IsReload();
+	void OnReload();
+	void AddMaxAmmoCount(int count) { currentStatus.maxAmmoCount += count; }
+	void AddMaxHp(int hp) { currentStatus.maxHp += hp; }
+	void AddMoveSpeed(float moveSpeed) { currentStatus.speed += moveSpeed; }
 
-	sf::RectangleShape& GetRectangleShape() { return debugBox.shape; }
+	sf::RectangleShape& GetRectangleShape();
 
 public:
 	void Init() override;

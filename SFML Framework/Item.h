@@ -37,6 +37,8 @@ public:
 	void CreateItem(const sf::Vector2f& position);
 	void SetPlayer(Player* player) { this->player = player; }
 
+	void CreateCollider() override;
+
 
 	sf::FloatRect GetLocalBounds() const  override;
 	sf::FloatRect GetGlobalBounds() const override;

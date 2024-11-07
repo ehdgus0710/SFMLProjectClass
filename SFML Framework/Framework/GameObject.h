@@ -44,6 +44,7 @@ public:
 	}
 
 	virtual void CreateCollider();
+	Collider* GetCollider() { return collider; }
 
 	virtual sf::FloatRect GetLocalBounds() const { return { 0.f , 0.f  , 0.f , 0.f }; }
 	virtual sf::FloatRect GetGlobalBounds() const { return { 0.f , 0.f  , 0.f , 0.f }; }

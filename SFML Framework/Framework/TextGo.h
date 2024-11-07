@@ -15,6 +15,12 @@ public:
 	void SetOrigin(const sf::Vector2f& newOrigin);
 	float GetRotation() const override;
 	void SetRotation(float angle) override;
+
+
+	void CreateCollider() override;
+
+	void Init() override;
+
 	void Reset() override;
 	void SetPosition(const sf::Vector2f& pos) override;
 	void SetScale(const sf::Vector2f& scale) override;

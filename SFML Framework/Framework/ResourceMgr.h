@@ -6,12 +6,17 @@ class ResourceMgr : public Singleton<ResourceMgr<T>>
 	friend Singleton<ResourceMgr<T>>;
 
 protected:
+	std::unordered_set<std::string> notUnloadAllResrouces;
 	std::unordered_map<std::string, T*> resources;
 
 	ResourceMgr() = default;
 	~ResourceMgr()
 	{
-		UnloadAll();
+		for (const auto& pair : resources)
+		{
+			delete pair.second;
+		}
+		resources.clear();
 	}
 
 	ResourceMgr(const ResourceMgr&) = delete;
@@ -22,14 +27,21 @@ public:
 
 	void UnloadAll()
 	{
-		for (const auto& pair : resources)
+		auto iter = resources.begin();
+
+		while (iter != resources.end())
 		{
-			delete pair.second;
+			if (notUnloadAllResrouces.find(iter->first) != notUnloadAllResrouces.end())
+			{
+				delete iter->second;
+				iter = resources.erase(iter);
+			}
+			else
+				++iter;
 		}
-		resources.clear();
 	}
 
-	bool Load(const std::string& id)
+	bool Load(const std::string& id, bool notUnloadAll = false)
 	{
 		if (resources.find(id) != resources.end())
 			return false;
@@ -39,6 +51,7 @@ public:
 		if (success)
 		{
 			resources.insert({ id, resource });
+			notUnloadAllResrouces.insert(id);
 		}
 		else
 		{
@@ -55,6 +68,13 @@ public:
 
 		delete it->second;
 		resources.erase(it);
+
+		auto find = notUnloadAllResrouces.find(id);
+		if (find != notUnloadAllResrouces.end())
+		{
+			notUnloadAllResrouces.erase(find);
+		}
+
 		return true;
 	}
 

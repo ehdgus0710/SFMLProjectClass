@@ -170,9 +170,14 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ScenePongGame.cpp" />
     <ClCompile Include="SceneZombieGame.cpp" />
+    <ClCompile Include="SoundMgr.cpp" />
     <ClCompile Include="TileMap.cpp" />
+    <ClCompile Include="UiGameOver.cpp" />
     <ClCompile Include="UiHub.cpp" />
+    <ClCompile Include="UiUpgrade.cpp" />
+    <ClCompile Include="WaveInfo.cpp" />
     <ClCompile Include="Zombie.cpp" />
+    <ClCompile Include="ZombieBloodEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -199,9 +204,14 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="ScenePongGame.h" />
     <ClInclude Include="SceneZombieGame.h" />
+    <ClInclude Include="SoundMgr.h" />
     <ClInclude Include="TileMap.h" />
+    <ClInclude Include="UiGameOver.h" />
     <ClInclude Include="UiHub.h" />
+    <ClInclude Include="UiUpgrade.h" />
+    <ClInclude Include="WaveInfo.h" />
     <ClInclude Include="Zombie.h" />
+    <ClInclude Include="ZombieBloodEffect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
