@@ -26,8 +26,6 @@ protected:
 	std::string		textureId;
 	sf::Vector2f	direction;
 
-	DebugBox		debugBox;
-
 	int				maxHp;
 	int				hp;
 	float			speed;
@@ -51,9 +49,9 @@ public:
 
 	sf::FloatRect GetLocalBounds() const  override;
 	sf::FloatRect GetGlobalBounds() const override;
-
 	void OnDamage(GameObject* target , int damge);
 
+	void CreateCollider() override;
 public:
 	void Init() override;
 	void Release() override;
@@ -63,5 +61,5 @@ public:
 	void Draw(sf::RenderWindow& window) override;
 public:
 	Zombie(const std::string& name = "");
-	~Zombie() = default;
+	~Zombie();
 };

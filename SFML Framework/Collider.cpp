@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Collider.h"
 
+bool Collider::IsDebug = true;
+
 void Collider::SetSize(const sf::Vector2f& size)
 {
 	this->size = size;
@@ -49,8 +51,18 @@ void Collider::Reset()
 
 void Collider::Draw(sf::RenderWindow& window)
 {
-	if(isActive)
+	if (isActive && IsDebug)
+	{
+		if(isCollion)
+			coliderRect.setOutlineColor(sf::Color::Red);
+		else
+			coliderRect.setOutlineColor(sf::Color::Green);
+
+
 		window.draw(coliderRect);
+
+		isCollion = false;
+	}
 }
 
 Collider::Collider()
@@ -61,6 +73,7 @@ Collider::Collider()
 	, rotation(0.f)
 	, isActive(true)
 	, originPreset(Origins::MC)
+	, isCollion(false)
 {
 	coliderRect.setFillColor(sf::Color::Transparent);
 	coliderRect.setOutlineColor(sf::Color::Green);
@@ -75,6 +88,7 @@ Collider::Collider(const sf::Vector2f pos, const sf::Vector2f& size, const sf::V
 	, rotation(0.f)
 	, isActive(true)
 	, originPreset(Origins::MC)
+	, isCollion(false)
 {
 	coliderRect.setFillColor(sf::Color::Transparent);
 	coliderRect.setOutlineColor(sf::Color::Green);

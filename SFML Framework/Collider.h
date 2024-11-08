@@ -14,6 +14,8 @@ public:
 	Origins originPreset;
 
 	bool isActive;
+	bool isCollion;
+	static bool IsDebug;
 
 public:
 	void SetSize(const sf::Vector2f& size);
@@ -25,6 +27,8 @@ public:
 
 	void Reset();
 	void Draw(sf::RenderWindow& window);
+
+	void SetCollision(bool col) { isCollion = col; }
 
 public:
 	Collider();

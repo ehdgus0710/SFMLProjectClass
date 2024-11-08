@@ -162,6 +162,11 @@ void Player::OnReload()
 	uiHub->SetAmmo(currentAmmoCount, totalAmmoCount);
 }
 
+void Player::IsCollision(bool isCollision)
+{
+	collider->SetCollision(isCollision);
+}
+
 sf::RectangleShape& Player::GetRectangleShape()
 {
 	return collider->coliderRect;
@@ -188,7 +193,7 @@ void Player::Reset()
 	if (collider != nullptr)
 	{
 		collider->SetSize((sf::Vector2f)body.getTexture()->getSize());
-		collider->SetScale({ 1.5f,1.5f });
+		collider->SetScale({ 1.f,1.f });
 		collider->Reset();
 	}
 

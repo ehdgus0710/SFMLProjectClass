@@ -5,6 +5,7 @@
 #include "Scene.h"
 #include "SceneZombieGame.h"
 #include "TileMap.h"
+#include "Collider.h"
 
 int Zombie::TotalTypes = (int)Types::Crawler;
 
@@ -17,6 +18,10 @@ Zombie::Zombie(const std::string& name)
 	, attackInterval(2.f)
 	, attackTimer(0.f)
 	, player(nullptr)
+{
+}
+
+Zombie::~Zombie()
 {
 }
 
@@ -59,24 +64,47 @@ void Zombie::SetType(Types type)
 
 	SetOrigin(originPreset);
 	sceneGame = dynamic_cast<SceneZombieGame*>(SceneMgr::Instance().GetCurrentScene());
+
+
+	if (collider != nullptr)
+	{
+		collider->SetSize((sf::Vector2f)body.getTexture()->getSize());
+		collider->SetScale({ 1.f,1.f });
+		collider->SetOrigin(originPreset);
+		collider->Reset();
+	}
+
 }
 
 void Zombie::SetPosition(const sf::Vector2f& pos)
 {
 	position = pos;
 	body.setPosition(position);
+	if (collider)
+	{
+		collider->SetPosition(pos);
+	}
 }
 
 void Zombie::SetRotation(float angle)
 {
 	rotation = angle;
 	body.setRotation(angle);
+	if (collider)
+	{
+		collider->SetRotation(angle);
+	}
 }
 
 void Zombie::SetScale(const sf::Vector2f& s)
 {
 	scale = s;
 	body.setScale(scale);
+
+	if (collider)
+	{
+		collider->SetScale(scale);
+	}
 }
 
 void Zombie::SetOrigin(Origins preset)
@@ -93,6 +121,7 @@ void Zombie::SetOrigin(const sf::Vector2f& newOrigin)
 	originPreset = Origins::Custom;
 	origin = newOrigin;
 	body.setOrigin(origin);
+
 }
 
 sf::FloatRect Zombie::GetLocalBounds() const
@@ -117,10 +146,19 @@ void Zombie::OnDamage(GameObject* target, int d)
 		SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/hit.wav"));
 }
 
+void Zombie::CreateCollider()
+{
+	collider = new Collider(position, scale);
+	collider->SetOrigin(originPreset);
+	collider->Reset();
+}
+
 void Zombie::Init()
 {
 	sortingLayer = SortingLayers::Foreground;
 	sortingOrder = 0;
+
+	CreateCollider();
 }
 
 void Zombie::Release()
@@ -152,7 +190,6 @@ void Zombie::Update(float dt)
 		SetPosition(position + direction * speed * dt);
 	}
 
-	debugBox.SetBounds(body.getGlobalBounds());
 }
 
 void Zombie::FixedUpdate(float dt)
@@ -166,30 +203,26 @@ void Zombie::FixedUpdate(float dt)
 
 	if (bounds.intersects(playerBounds))
 	{
-		debugBox.SetOutlineColor(sf::Color::Red);
-		if (attackTimer > attackInterval)
+		if (Utils::CheckCollision(collider->coliderRect, player->GetCollider()->coliderRect))
 		{
-			attackTimer = 0.f;
-			player->OnTakeDamage(damage);
-		}
-		/*if (Utils::CheckCollision(body, player->GetB))
-		{
-			debugBox.SetOutlineColor(sf::Color::Red);
+			player->IsCollision(true);
+			collider->SetCollision(true);
+			// debugBox.SetOutlineColor(sf::Color::Red);
 			if (attackTimer > attackInterval)
 			{
 				attackTimer = 0.f;
 				player->OnTakeDamage(damage);
 			}
-		}*/
+		}
 
-		
 	}
-	else
-		debugBox.SetOutlineColor(sf::Color::Green);
 }
 
 void Zombie::Draw(sf::RenderWindow& window)
 {
 	window.draw(body);
-	debugBox.Draw(window);
+
+
+	if (collider != nullptr)
+		collider->Draw(window);
 }

@@ -10,13 +10,14 @@
 #include "UiUpgrade.h"
 #include "UiGameOver.h"
 #include "ZombieBloodEffect.h"
+#include "Collider.h"
 
 SceneZombieGame::SceneZombieGame()
 	: Scene(SceneIds::Game)
 	, player(nullptr)
 	, tileMap(nullptr)
 	, defaultCreateItemTime(3.f)
-	, createItemTime(0.5f)
+	, createItemTime(3.5f)
 	, currentItemTime(0.f)
 	, score(0)
 	, maxScore(0)
@@ -304,6 +305,11 @@ void SceneZombieGame::Update(float dt)
 	{
 		SpawnItem(1);
 		currentItemTime = 0.f;
+	}
+
+	if (InputMgr::GetKeyDown(sf::Keyboard::F2))
+	{
+		Collider::IsDebug = !Collider::IsDebug;
 	}
 }
 
