@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "SceneZombieGame.h"
 #include "Collider.h"
+#include "ItemTable.h"
 
 int Item::totalItemType = (int)ItemType::End;
 
@@ -19,26 +20,10 @@ void Item::SetTypeInfo()
 {
 	itemType = (ItemType)Utils::RandomRange(0, totalItemType - 1);
 
-	switch (itemType)
-	{
-	case Item::ItemType::health:
-	{
-		textureId = "graphics/health_pickup.png";
-		value = 1;
-		//ammo_pickup
-	}
-		break;
+	auto dataItem = ITEM_TABLE->Get(itemType);
 
-	case Item::ItemType::Ammo:
-	{
-		textureId = "graphics/ammo_pickup.png";
-		value = 1;
-	}
-	break;
-	default:
-		break;
-	}
-
+	textureId = dataItem.textureId;
+	value = dataItem.value;
 
 	body.setTexture(TEXTURE_MGR.Get(textureId), true);
 	SetOrigin(originPreset); 
@@ -161,7 +146,7 @@ void Item::FixedUpdate(float dt)
 		if (itemType == ItemType::health)
 			player->AddHp(value);
 		else if (itemType == ItemType::Ammo)
-			player->AddTotalAmmo(30);
+			player->AddTotalAmmo(value);
 
 		dynamic_cast<SceneZombieGame*>(SceneMgr::Instance().GetCurrentScene())->ReturnItem(this);
 	}

@@ -13,6 +13,7 @@ void DataTableManger::Init()
 
 	tableMap.insert({ DataTable::Types::String, new StringTable() });
 	tableMap.insert({ DataTable::Types::Zombie, new ZombieTable() });
+	tableMap.insert({ DataTable::Types::Item, new ItemTable() });
 
 	for (auto table : tableMap)
 	{
