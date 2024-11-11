@@ -31,6 +31,28 @@ void TextGo::SetRotation(float angle)
 	rotation = angle;
 }
 
+void TextGo::OnLocalize(Languages lange)
+{
+	text.setString(STRING_TABLE->Get(stringId, lange));
+	SetOrigin(originPreset);
+}
+
+void TextGo::Set(int size, sf::Color color)
+{
+	text.setCharacterSize(size);
+	text.setFillColor(color);
+}
+
+void TextGo::SetString(const std::string& id)
+{
+	stringId = id;
+	auto name = STRING_TABLE->Get(stringId);
+	text.setString(STRING_TABLE->Get(stringId));
+	SetOrigin(originPreset);
+
+	// text.setString(id);
+}
+
 void TextGo::CreateCollider()
 {
 	collider = new Collider(position, scale);
@@ -47,9 +69,8 @@ void TextGo::Init()
 void TextGo::Reset()
 {
 	text.setFont(FONT_MGR.Get(fontId));
+	SetString(stringId);
 	SetPosition(position);
-	
-	SetOrigin(originPreset);
 
 	if (collider != nullptr)
 		collider->Reset();

@@ -31,6 +31,9 @@
     <Filter Include="Contants\ZombieGame\UI">
       <UniqueIdentifier>{71329547-8dd8-43eb-9e92-72e75e34afbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DataTable">
+      <UniqueIdentifier>{16241088-7431-4247-96a4-83c936f2ba42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\main.cpp">
@@ -119,6 +122,24 @@
     </ClCompile>
     <ClCompile Include="WaveInfo.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTableManger.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTable.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="StringTable.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="Variables.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieTable.cpp">
+      <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemTable.cpp">
+      <Filter>DataTable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +238,24 @@
     </ClInclude>
     <ClInclude Include="WaveInfo.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTableManger.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTable.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="StringTable.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="Variables.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieTable.h">
+      <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemTable.h">
+      <Filter>DataTable</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

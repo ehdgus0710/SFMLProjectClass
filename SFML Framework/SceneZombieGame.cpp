@@ -11,12 +11,13 @@
 #include "UiGameOver.h"
 #include "ZombieBloodEffect.h"
 #include "Collider.h"
+#include <fstream>
 
 SceneZombieGame::SceneZombieGame()
 	: Scene(SceneIds::Game)
 	, player(nullptr)
 	, tileMap(nullptr)
-	, defaultCreateItemTime(3.f)
+	, defaultCreateItemTime(3.5f)
 	, createItemTime(3.5f)
 	, currentItemTime(0.f)
 	, score(0)
@@ -136,6 +137,7 @@ void SceneZombieGame::OnPlayerDie()
 {
 	Framework::Instance().SetTimeScale(0.f);
 	uiGameOver->SetActive(true);
+	SaveScore();
 }
 
 void SceneZombieGame::CreateWave(WaveInfo* wave)
@@ -145,6 +147,7 @@ void SceneZombieGame::CreateWave(WaveInfo* wave)
 
 void SceneZombieGame::StartWave()
 {
+	LoadInGameInfo();
 	currentWaveInfo = *waveInfos[waveIndex++];
 	uiHub->SetWave(waveIndex);
 	uiUpgrade->SetActive(false);
@@ -219,10 +222,13 @@ void SceneZombieGame::Enter()
 
 
 	FRAMEWORK.SetTimeScale(0.f);
+
+	LoadScore();
 }
 
 void SceneZombieGame::Exit()
 {
+
 	for (auto& iter : bulletList)
 	{
 		RemoveGo(iter);
@@ -293,6 +299,8 @@ void SceneZombieGame::Update(float dt)
 	{
 		uiUpgrade->SetActive(true);
 		FRAMEWORK.SetTimeScale(0.f);
+		SaveScore();
+		SaveInGameInfo();
 	}
 
 	if (player != nullptr)
@@ -322,4 +330,80 @@ void SceneZombieGame::Draw(sf::RenderWindow& window)
 	window.draw(cursor);
 	window.setView(saveView);
 
+}
+
+bool SceneZombieGame::SaveScore()
+{
+	std::string filename = "Socre.txt";
+
+	std::ofstream outFile(filename);
+	if (!outFile)
+	{
+		std::cerr << "Err!" << std::endl;
+		return 1;
+	}
+
+	outFile << maxScore << std::endl;
+
+	outFile.close();
+
+	return false;
+}
+
+bool SceneZombieGame::LoadScore()
+{
+	std::string filename = "Socre.txt";
+	std::ifstream inFile(filename);
+
+	if (!inFile)
+	{
+		std::cerr << "Err!" << std::endl;
+		return 1;
+	}
+
+	inFile >> maxScore;
+
+	uiHub->SetHiScore(maxScore);
+
+	inFile.close();
+	return false;
+}
+
+bool SceneZombieGame::SaveInGameInfo()
+{
+	std::string filename = "InGameInfo.txt";
+
+	std::ofstream outFile(filename);
+	if (!outFile)
+	{
+		std::cerr << "Err!" << std::endl;
+		return 1;
+	}
+
+	outFile << waveIndex << std::endl;
+
+	return false;
+}
+
+bool SceneZombieGame::LoadInGameInfo()
+{
+	std::string filename = "InGameInfo.txt";
+	std::ifstream inFile(filename);
+
+	if (!inFile)
+	{
+		std::cerr << "Err!" << std::endl;
+		return 1;
+	}
+
+	inFile >> waveIndex;
+
+	Status playerStatus = player->GetCurrentStatus();
+	
+
+	inFile.close();
+
+
+
+	return false;
 }

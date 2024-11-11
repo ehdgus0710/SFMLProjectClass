@@ -39,7 +39,7 @@ public:
 	void OnUpgradeRunSpeed();
 	void OnUpgradeHealthPickups();
 	void OnUpgradeAmmoPickups();
-
+	void OnLocalize(Languages lange) override;
 public:
 
 	void Init() override;

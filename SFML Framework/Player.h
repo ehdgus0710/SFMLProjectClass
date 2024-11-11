@@ -72,6 +72,9 @@ public:
 	void AddMaxHp(int hp) { currentStatus.maxHp += hp; }
 	void AddMoveSpeed(float moveSpeed) { currentStatus.speed += moveSpeed; }
 
+	void SetStatus(const Status& status) { currentStatus = status; }
+	Status GetCurrentStatus() { return currentStatus; }
+
 	void IsCollision(bool isCollision);
 
 	sf::RectangleShape& GetRectangleShape();

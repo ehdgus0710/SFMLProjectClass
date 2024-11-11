@@ -27,7 +27,7 @@ Player::Player(const std::string& name)
 	SetOrigin(Origins::MC);
 	CreateCollider();
 
-	defaultStatus.maxHp = 100;
+	defaultStatus.maxHp = 10;
 	defaultStatus.shootDelay = 0.3f;
 	defaultStatus.speed = 500.f;
 	defaultStatus.maxAmmoCount = 30;
@@ -102,7 +102,6 @@ void Player::Shoot()
 void Player::OnTakeDamage(int takeDamage)
 {
 	hp -= takeDamage;
-	uiHub->SetHp(this->hp, currentStatus.maxHp);
 	isInvulnerability = true;
 
 	currentInvulnerabilityTime = InvulnerabilityTime;
@@ -112,6 +111,8 @@ void Player::OnTakeDamage(int takeDamage)
 		hp = 0;
 		sceneGame->OnPlayerDie();
 	}
+
+	uiHub->SetHp(this->hp, currentStatus.maxHp);
 }
 
 void Player::AddHp(int hp)

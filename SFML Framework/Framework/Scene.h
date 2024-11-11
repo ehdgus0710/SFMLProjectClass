@@ -50,6 +50,7 @@ public:
 	virtual void OnPreDraw();
 	virtual void Draw(sf::RenderWindow& window);
 	virtual void OnPostDraw();
+	virtual void OnLocalize(Languages langugage);
 		
 public:
 	Scene(SceneIds id);

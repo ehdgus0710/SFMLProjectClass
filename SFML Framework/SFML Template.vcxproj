@@ -151,6 +151,8 @@
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="DataTable.cpp" />
+    <ClCompile Include="DataTableManger.cpp" />
     <ClCompile Include="DebugBox.cpp" />
     <ClCompile Include="Framework\Framework.cpp" />
     <ClCompile Include="Framework\GameObject.cpp" />
@@ -167,23 +169,29 @@
     <ClCompile Include="Framework\TextGo.cpp" />
     <ClCompile Include="Framework\Utils.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemTable.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ScenePongGame.cpp" />
     <ClCompile Include="SceneZombieGame.cpp" />
     <ClCompile Include="SoundMgr.cpp" />
+    <ClCompile Include="StringTable.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="UiGameOver.cpp" />
     <ClCompile Include="UiHub.cpp" />
     <ClCompile Include="UiUpgrade.cpp" />
+    <ClCompile Include="Variables.cpp" />
     <ClCompile Include="WaveInfo.cpp" />
     <ClCompile Include="Zombie.cpp" />
     <ClCompile Include="ZombieBloodEffect.cpp" />
+    <ClCompile Include="ZombieTable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bat.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="DataTable.h" />
+    <ClInclude Include="DataTableManger.h" />
     <ClInclude Include="DebugBox.h" />
     <ClInclude Include="Framework\Defines.h" />
     <ClInclude Include="Framework\Framework.h" />
@@ -201,17 +209,21 @@
     <ClInclude Include="Framework\TextGo.h" />
     <ClInclude Include="Framework\Utils.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemTable.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ScenePongGame.h" />
     <ClInclude Include="SceneZombieGame.h" />
     <ClInclude Include="SoundMgr.h" />
+    <ClInclude Include="StringTable.h" />
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="UiGameOver.h" />
     <ClInclude Include="UiHub.h" />
     <ClInclude Include="UiUpgrade.h" />
+    <ClInclude Include="Variables.h" />
     <ClInclude Include="WaveInfo.h" />
     <ClInclude Include="Zombie.h" />
     <ClInclude Include="ZombieBloodEffect.h" />
+    <ClInclude Include="ZombieTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

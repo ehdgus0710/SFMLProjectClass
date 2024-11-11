@@ -32,6 +32,7 @@ void Scene::Enter()
 	for (auto obj : gameObjects)
 	{
 		obj->Reset();
+		// obj->OnLocalize(Variables::currentLanguge);
 	}
 }
 
@@ -53,6 +54,27 @@ void Scene::Update(float dt)
 			continue;
 		obj->Update(dt);
 	}
+
+
+	if (InputMgr::GetKeyDown(sf::Keyboard::Num1))
+	{
+		Variables::currentLanguge = Languages::Korean;
+		STRING_TABLE->Load();
+		OnLocalize(Variables::currentLanguge);
+	}
+	if (InputMgr::GetKeyDown(sf::Keyboard::Num2))
+	{
+		Variables::currentLanguge = Languages::English;
+		STRING_TABLE->Load();
+		OnLocalize(Variables::currentLanguge);
+	}
+	if (InputMgr::GetKeyDown(sf::Keyboard::Num3))
+	{
+		Variables::currentLanguge = Languages::Japanese;
+		STRING_TABLE->Load();
+		OnLocalize(Variables::currentLanguge);
+	}
+
 }
 
 void Scene::LateUpdate(float dt)
@@ -77,7 +99,22 @@ void Scene::FixedUpdate(float dt)
 
 void Scene::OnPreDraw()
 {
+	ApplyAddGo();
+	ApplyRemoveGO();
 }
+
+void Scene::OnLocalize(Languages langugage)
+{
+	for (auto obj : gameObjects)
+	{
+		if (!obj->IsActive())
+			continue;
+
+
+		obj->OnLocalize(langugage);
+	}
+}
+
 
 void Scene::Draw(sf::RenderWindow& window)
 {

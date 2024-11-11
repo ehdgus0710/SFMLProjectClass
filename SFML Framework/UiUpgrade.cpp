@@ -67,31 +67,25 @@ void UiUpgrade::SetOrigin(const sf::Vector2f& newOrigin)
 void UiUpgrade::SetTextInfo()
 {
 	unsigned int textSize = 75;
-	sf::Font& font = FONT_MGR.Get("fonts/zombiecontrol.ttf");
+	sf::Font& font = FONT_MGR.Get("fonts/D2Coding.ttc");
 
 	for (int i = 0; i < textCount; ++i)
 	{
-		TextGo* text = new TextGo("fonts/zombiecontrol.ttf", std::to_string(i + 1));
+		TextGo* text = new TextGo("fonts/D2Coding.ttc", std::to_string(i + 1));
 		upgradeTextObjects.push_back(text);
 		text->text.setFont(font);
-		text->text.setCharacterSize(textSize);
-		text->SetOrigin(Origins::MC);
-		text->text.setFillColor(sf::Color::White);
+		text->Set(textSize, sf::Color::White);
+		text->SetOrigin(Origins::ML);
+		text->SetString("UpgradeText" + std::to_string(i + 1));
 		text->CreateCollider();
 		text->Reset();
 	}
 
-	upgradeTextObjects[0]->text.setString("1- INCREASED RATE OF FIRE");
-	upgradeTextObjects[1]->text.setString("2- INCREASED CLIP SIZECNEXT RELOAD");
-	upgradeTextObjects[2]->text.setString("3- INCREASED MAX HEALTH");
-	upgradeTextObjects[3]->text.setString("4- INCREASED RUN SPEED");
-	upgradeTextObjects[4]->text.setString("5- MORE AND BETTER HEALTH PICKUPS");
-	upgradeTextObjects[5]->text.setString("6- MORE AND BETTER AMMO PICKUPS");
-
 	for (int i = 0; i < textCount; ++i)
 	{
 		auto size = upgradeTextObjects[i]->text.getGlobalBounds();
-		upgradeTextObjects[i]->GetCollider()->SetSize({ size.width, size.height });
+		upgradeTextObjects[i]->GetCollider()->SetSize({ size.top + size.width, size.left + size.height });
+		upgradeTextObjects[i]->GetCollider()->SetOrigin(Origins::ML);
 	}
 
 	textScale.x = (float)textSize;
@@ -133,6 +127,16 @@ void UiUpgrade::OnUpgradeAmmoPickups()
 {
 	sceneGame->SubItemSpawnTime(0.2f);
 	SoundMgr::Instance().PlaySfx(SOUNDBUFFER_MGR.Get("sound/pickup.wav"));
+}
+
+void UiUpgrade::OnLocalize(Languages lange)
+{
+	upgradeTextObjects[0]->OnLocalize(lange);
+	upgradeTextObjects[1]->OnLocalize(lange);
+	upgradeTextObjects[2]->OnLocalize(lange);
+	upgradeTextObjects[3]->OnLocalize(lange);
+	upgradeTextObjects[4]->OnLocalize(lange);
+	upgradeTextObjects[5]->OnLocalize(lange);
 }
 
 void UiUpgrade::Init()

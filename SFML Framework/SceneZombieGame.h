@@ -77,6 +77,12 @@ public:
 	void Update(float dt) override;
 	void Draw(sf::RenderWindow& window) override;
 
+	bool SaveScore();
+	bool LoadScore();
+
+	bool SaveInGameInfo();
+	bool LoadInGameInfo();
+
 public:
 	SceneZombieGame();
 	~SceneZombieGame();

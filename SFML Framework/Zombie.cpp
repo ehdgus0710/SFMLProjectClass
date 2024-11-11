@@ -6,6 +6,7 @@
 #include "SceneZombieGame.h"
 #include "TileMap.h"
 #include "Collider.h"
+#include "ZombieTable.h"
 
 int Zombie::TotalTypes = (int)Types::Crawler;
 
@@ -27,44 +28,19 @@ Zombie::~Zombie()
 
 void Zombie::SetType(Types type)
 {
-	types = type;
+	auto& data = ZOMBIE_TABLE->Get(type);
 
-	switch (types)
-	{
-	case Zombie::Types::Bloater:
-	{
-		textureId = "graphics/bloater.png";
-		maxHp = 50;
-		speed = 100.f;
-		damage = 1;
-	}
-		break;
-	case Zombie::Types::Chaser: 
-		{
-		textureId = "graphics/chaser.png";
-		maxHp = 20;
-		speed = 300.f;
-		damage = 2;
-	}
-		break;
-	case Zombie::Types::Crawler:
-	{
-		textureId = "graphics/crawler.png";
-		maxHp = 10;
-		speed = 200.f;
-		damage = 3;
-	}
-		break;
-	default:
-		break;
-	}
+	types = data.id;
+	textureId = data.textureId;
+	maxHp = data.maxHp;
+	speed = data.speed;
+	damage = data.damage;
 
 	hp = maxHp;
 	body.setTexture(TEXTURE_MGR.Get(textureId), true);
 
 	SetOrigin(originPreset);
 	sceneGame = dynamic_cast<SceneZombieGame*>(SceneMgr::Instance().GetCurrentScene());
-
 
 	if (collider != nullptr)
 	{

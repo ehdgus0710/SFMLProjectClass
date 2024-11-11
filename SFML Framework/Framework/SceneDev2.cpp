@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "SceneDev2.h"
 #include "SpriteGo.h"
+#include "TextGo.h"
+
+#include <codecvt>
 
 SceneDev2::SceneDev2() : Scene(SceneIds::Dev2)
 {
@@ -9,9 +12,22 @@ SceneDev2::SceneDev2() : Scene(SceneIds::Dev2)
 
 void SceneDev2::Init()
 {
-	std::cout << "SceneDev2::Init()" << std::endl;
 
-	AddGo(new SpriteGo("graphics/player.png"));
+	auto text = AddGo(new TextGo("fonts/D2Coding.ttc", "Scene Name 2"));
+
+	text->sortingLayer = SortingLayers::UI;
+	text->Set(25, sf::Color::White);
+	text->SetString("Hi");
+
+	auto text2 = AddGo(new TextGo("fonts/D2Coding.ttc", "Scene Name 2"));
+
+	text2->sortingLayer = SortingLayers::UI;
+	text2->Set(25, sf::Color::White);
+	text2->SetPosition({ 0.f , 100.f });
+	//text2->SetString(L"ÇÑ±¹¾î");
+	text2->SetString("Hi");
+
+	std::cout << "SceneDev2::Init()" << std::endl;
 
 	Scene::Init();
 }
