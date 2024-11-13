@@ -34,6 +34,9 @@
     <Filter Include="DataTable">
       <UniqueIdentifier>{16241088-7431-4247-96a4-83c936f2ba42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{0a48885a-fe1e-4eec-b334-495ffe26c93a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\main.cpp">
@@ -140,6 +143,18 @@
     </ClCompile>
     <ClCompile Include="ItemTable.cpp">
       <Filter>DataTable</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationClip.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="AniPlayer.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="AniPlayer2.cpp">
+      <Filter>Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +271,21 @@
     </ClInclude>
     <ClInclude Include="ItemTable.h">
       <Filter>DataTable</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationClip.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidcsv.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AniPlayer.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AniPlayer2.h">
+      <Filter>Animation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

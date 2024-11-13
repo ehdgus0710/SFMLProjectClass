@@ -8,6 +8,8 @@
 #include <iostream>
 #include <unordered_set>
 #include <codecvt>
+#include <functional>
+#include <fstream>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -28,4 +30,6 @@
 #include "DebugBox.h"
 #include "SoundMgr.h"
 #include "DataTableManger.h"
+
+#include "Animator.h"
 

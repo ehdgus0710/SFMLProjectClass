@@ -1,5 +1,9 @@
 #pragma once
 #include "Scene.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
+
 class SceneDev2 : public Scene
 {
 protected:

@@ -4,6 +4,8 @@
 #include "TextGo.h"
 
 #include <codecvt>
+#include "AniPlayer.h"
+#include "AniPlayer2.h"
 
 SceneDev2::SceneDev2() : Scene(SceneIds::Dev2)
 {
@@ -12,22 +14,30 @@ SceneDev2::SceneDev2() : Scene(SceneIds::Dev2)
 
 void SceneDev2::Init()
 {
+	// AddGo(new AniPlayer("Ani"));
+
+	AddGo(new AniPlayer2("Ani"));
+	// ResourceMgr<AnimationClip>().Load("")
+
 
 	auto text = AddGo(new TextGo("fonts/D2Coding.ttc", "Scene Name 2"));
 
-	text->sortingLayer = SortingLayers::UI;
-	text->Set(25, sf::Color::White);
-	text->SetString("Hi");
+	//text->sortingLayer = SortingLayers::UI;
+	//text->Set(25, sf::Color::White);
+	//text->SetString("Hi");
 
-	auto text2 = AddGo(new TextGo("fonts/D2Coding.ttc", "Scene Name 2"));
+	//auto text2 = AddGo(new TextGo("fonts/D2Coding.ttc", "Scene Name 2"));
 
-	text2->sortingLayer = SortingLayers::UI;
-	text2->Set(25, sf::Color::White);
-	text2->SetPosition({ 0.f , 100.f });
-	//text2->SetString(L"한국어");
-	text2->SetString("Hi");
+	//text2->sortingLayer = SortingLayers::UI;
+	//text2->Set(25, sf::Color::White);
+	//text2->SetPosition({ 0.f , 100.f });
+	////text2->SetString(L"한국어");
+	//text2->SetString("Hi");
 
-	std::cout << "SceneDev2::Init()" << std::endl;
+	//std::cout << "SceneDev2::Init()" << std::endl;
+
+	cameraView = Framework::Instance().GetRenderWindow().getDefaultView();
+	cameraView.setCenter(sf::Vector2f::zero);
 
 	Scene::Init();
 }
@@ -39,6 +49,16 @@ void SceneDev2::Enter()
 	TEXTURE_MGR.Load("graphics/player.png");
 
 	Scene::Enter();
+
+	std::ifstream f("json/example.json");
+	json data = json::parse(f);
+
+	std::cout << data.at("pi").get<double>() << std::endl;
+	std::cout << data["happy"] << std::endl;
+
+	data.at("pi") = 0.0;
+	std::cout << data.dump(4) << std::endl;
+	// std::cout << data["happy"] << std::endl;
 }
 
 void SceneDev2::Exit()
@@ -54,10 +74,10 @@ void SceneDev2::Update(float dt)
 {
 	Scene::Update(dt);
 
-	if (InputMgr::GetKeyDown(sf::Keyboard::Space))
-	{
-		SCENE_MGR.ChangeScene(SceneIds::Dev1);
-	}
+	//if (InputMgr::GetKeyDown(sf::Keyboard::Space))
+	//{
+	//	SCENE_MGR.ChangeScene(SceneIds::Dev1);
+	//}
 }
 
 void SceneDev2::Draw(sf::RenderWindow& window)

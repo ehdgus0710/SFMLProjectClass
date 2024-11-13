@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "json.hpp"
 #include "WaveInfo.h"
 
 class Player;

@@ -24,7 +24,7 @@ void SceneDev1::Enter()
 
 	cameraView = Framework::Instance().GetRenderWindow().getDefaultView();
 	cameraView.setCenter({});
-	
+
 }
 
 void SceneDev1::Exit()

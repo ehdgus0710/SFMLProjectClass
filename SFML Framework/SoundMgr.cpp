@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "SoundMgr.h"
-
 void SoundMgr::Init(int totalChannels)
 {
 	for (int i = 0; i < totalChannels; ++i)
