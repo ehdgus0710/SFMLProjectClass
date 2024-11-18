@@ -14,6 +14,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
+#include <json.hpp>
+using json = nlohmann::json;
+
 #include "Defines.h"
 #include "DataTable.h"
 #include "StringTable.h"

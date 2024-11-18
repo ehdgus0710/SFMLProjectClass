@@ -13,6 +13,9 @@
 #include "Collider.h"
 #include <fstream>
 
+#include "SaveData.h"
+#include "SaveLoadManager.h"
+
 SceneZombieGame::SceneZombieGame()
 	: Scene(SceneIds::Game)
 	, player(nullptr)
@@ -318,6 +321,39 @@ void SceneZombieGame::Update(float dt)
 	if (InputMgr::GetKeyDown(sf::Keyboard::F2))
 	{
 		Collider::IsDebug = !Collider::IsDebug;
+	}
+
+	if (InputMgr::GetKeyDown(sf::Keyboard::Num1))
+	{
+		SaveDataVC data;
+		for (auto zombie : zombieList)
+		{
+			data.zombies.push_back(zombie->GetSaveData());
+		}
+		SaveLoadManager::Instance().Save(data);
+	}
+	if (InputMgr::GetKeyDown(sf::Keyboard::Num2))
+	{
+		SaveDataVC data = SaveLoadManager::Instance().Load();
+
+		for (const auto& data : data.zombies)
+		{
+			Zombie* newZombie = zombiePool.Take();
+			newZombie->LoadSaveData(data);
+
+			zombieList.push_back(newZombie);
+			AddGo(newZombie);
+		}
+	}
+
+	if (InputMgr::GetKeyDown(sf::Keyboard::Num3))
+	{
+		for (auto& iter : zombieList)
+		{
+			RemoveGo(iter);
+			zombiePool.Return(iter);
+		}
+		zombieList.clear();
 	}
 }
 

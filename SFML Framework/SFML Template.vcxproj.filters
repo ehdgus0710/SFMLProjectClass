@@ -37,6 +37,9 @@
     <Filter Include="Animation">
       <UniqueIdentifier>{0a48885a-fe1e-4eec-b334-495ffe26c93a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SaveData">
+      <UniqueIdentifier>{2fc5f8b1-53ad-4409-87ed-67402d7979a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\main.cpp">
@@ -155,6 +158,12 @@
     </ClCompile>
     <ClCompile Include="AniPlayer2.cpp">
       <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveData.cpp">
+      <Filter>SaveData</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveLoadManager.cpp">
+      <Filter>SaveData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -286,6 +295,12 @@
     </ClInclude>
     <ClInclude Include="AniPlayer2.h">
       <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveData.h">
+      <Filter>SaveData</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveLoadManager.h">
+      <Filter>SaveData</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -175,6 +175,8 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemTable.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SaveData.cpp" />
+    <ClCompile Include="SaveLoadManager.cpp" />
     <ClCompile Include="ScenePongGame.cpp" />
     <ClCompile Include="SceneZombieGame.cpp" />
     <ClCompile Include="SoundMgr.cpp" />
@@ -220,6 +222,8 @@
     <ClInclude Include="ItemTable.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="rapidcsv.h" />
+    <ClInclude Include="SaveData.h" />
+    <ClInclude Include="SaveLoadManager.h" />
     <ClInclude Include="ScenePongGame.h" />
     <ClInclude Include="SceneZombieGame.h" />
     <ClInclude Include="SoundMgr.h" />

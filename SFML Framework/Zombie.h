@@ -3,6 +3,8 @@
 class Player;
 class SceneZombieGame;
 
+#include "SaveData.h"
+
 class Zombie : public GameObject
 {
 public:
@@ -59,6 +61,10 @@ public:
 	void Update(float dt) override;
 	void FixedUpdate(float dt) override;
 	void Draw(sf::RenderWindow& window) override;
+
+	SaveZombie GetSaveData() const;
+	void LoadSaveData(const SaveZombie& data);
+
 public:
 	Zombie(const std::string& name = "");
 	~Zombie();

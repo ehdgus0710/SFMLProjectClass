@@ -6,6 +6,7 @@
 #include <codecvt>
 #include "AniPlayer.h"
 #include "AniPlayer2.h"
+#include "SaveLoadManager.h"
 
 SceneDev2::SceneDev2() : Scene(SceneIds::Dev2)
 {
@@ -78,6 +79,22 @@ void SceneDev2::Update(float dt)
 	//{
 	//	SCENE_MGR.ChangeScene(SceneIds::Dev1);
 	//}
+
+	if (InputMgr::GetKeyDown(sf::Keyboard::Num2))
+	{
+		SaveDataVC load = SaveLoadManager::Instance().Load();
+		int gold = load.gold;
+		int score = load.highscore;
+		int version = load.version;
+	}
+
+	if (InputMgr::GetKeyDown(sf::Keyboard::Num1))
+	{
+		SaveDataVC save;
+		save.highscore = 123;
+		save.gold = 100;
+		SaveLoadManager::Instance().Save(save);
+	}
 }
 
 void SceneDev2::Draw(sf::RenderWindow& window)

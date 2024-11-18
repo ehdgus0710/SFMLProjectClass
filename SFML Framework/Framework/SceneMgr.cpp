@@ -17,7 +17,7 @@ void SceneMgr::Init()
 		scene->Init();
 	}
 
-	currentScene = SceneIds::Dev2;
+	currentScene = SceneIds::Game;
 	scenes[(int)currentScene]->Enter();
 }
 

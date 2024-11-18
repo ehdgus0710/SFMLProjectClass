@@ -202,3 +202,17 @@ void Zombie::Draw(sf::RenderWindow& window)
 	if (collider != nullptr)
 		collider->Draw(window);
 }
+
+SaveZombie Zombie::GetSaveData() const
+{
+	return SaveZombie{ (int)types, position, rotation, scale, hp };
+}
+
+void Zombie::LoadSaveData(const SaveZombie& data)
+{
+	SetType((Types)data.type);
+	SetPosition(data.position);
+	SetRotation(data.rotation);
+	SetScale(data.scale);
+	hp = data.hp;
+}

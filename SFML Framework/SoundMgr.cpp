@@ -2,6 +2,20 @@
 #include "SoundMgr.h"
 void SoundMgr::Init(int totalChannels)
 {
+	sf::SoundBufferRecorder recorder;
+	recorder.getBuffer();
+	std::vector<std::string> availableDevices = sf::SoundRecorder::getAvailableDevices();
+
+	// choose a device
+	std::string inputDevice = availableDevices[0];
+
+
+	// set the device
+	if (!recorder.setDevice(inputDevice))
+	{
+		int a = 0;
+		// error: device selection failed
+	}
 	for (int i = 0; i < totalChannels; ++i)
 	{
 		waiting.push_back(new sf::Sound());
